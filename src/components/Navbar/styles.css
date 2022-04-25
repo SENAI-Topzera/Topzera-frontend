@@ -1,0 +1,33 @@
+.nav-container {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.icon {
+    font-size: 40px;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFF;
+    height: 60px;
+}
+
+.nav-icons {
+    justify-content: flex-start;
+    width: 10%;
+}
+
+.nav-links {
+    justify-content: space-between;
+    width: 36%;
+    display: flex;
+}
+
+.nav-links > span:hover, .nav-icons > i:hover {
+    color: #7427F1;
+    transition: 0.5s;
+    cursor: pointer;
+}
