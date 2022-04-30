@@ -3,7 +3,8 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/requests';
 import { Car } from '../../types/car';
 import CarCard from 'components/CarCard';
-import './styles.css';
+import { Container } from "react-bootstrap";
+//import './styles.css';
 
 function Home() {
 

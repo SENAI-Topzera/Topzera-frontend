@@ -1,20 +1,23 @@
-import './styles.css';
+//import './styles.css';
+import { Nav, Navbar, Container } from "react-bootstrap";
 
-function Navbar() {
+function TopNavbar() {
     return (
-        <nav className={"container nav-container"}>
-            <div className={"nav-content"}>
-                <div className={"nav-icons"}>
-                    <i className={"las la-home icon"} />
-                </div>
-                <div className={"nav-links"}>
-                    <span className={"h3"}>Ofertas</span>
-                    <span className={"h3"}>Registrar-me</span>
-                    <span className={"h3"}>Login</span>
-                </div>
-            </div>
-        </nav>
+        <Navbar bg="primary">
+            <Container fluid className="mx-3">
+                <Navbar.Brand href="#home" className="text-dark">
+                    <h1>Topzera</h1>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+                <Navbar.Collapse className="justify-content-end">
+                    <Nav>
+                        <Nav.Link className="text-dark fw-bold" href="#home">Home</Nav.Link>
+                        <Nav.Link className="text-dark fw-bold" href="#profile">Profile</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 
-export default Navbar;
+export default TopNavbar;
