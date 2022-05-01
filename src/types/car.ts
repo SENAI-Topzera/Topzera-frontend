@@ -5,4 +5,5 @@ export type Car = {
     year: number;
     owner: string;
     description: string;
+    imgs: string;
 }
