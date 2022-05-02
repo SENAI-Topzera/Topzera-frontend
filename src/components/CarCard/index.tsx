@@ -1,4 +1,5 @@
 import { Car } from '../../types/car';
+import { Carousel, Card } from "react-bootstrap";
 import './styles.css';
 
 const carImage = 'https://1.bp.blogspot.com/-m1Jn9m0IAYI/YMEKSZYJmTI/AAAAAAADKic/GL4w5FnKukcJny5mUMormoZj7M_C_8qnACLcBGAsYHQ/s1479/29%2B%25281%2529.jpg';
@@ -9,29 +10,32 @@ type Props = {
 }
 
 function CarCard({ car }: Props) {
+
+    const carouselItem = [];
+
+    for (let i = 0; i < car.imgs.length; i++) {
+        var carImg = car.imgs[i];
+        carouselItem.push(<Carousel.Item>
+            <img
+                className="d-block w-100"
+                src={carImg}
+                alt="slide"
+            />
+        </Carousel.Item>)
+    }
+
     return (
-        <div className={"card-container"}>
-            <div className={"card-body"}>
-                <div className={"row"}>
-                    <div className={"col-12"}>
-                        <img src={carImage2} alt="Car image" />
-                    </div>
-                </div>
-                <div className={"row"}>
-                    <div className={"col-12 card-info-2"}>
-                        <div className={"row"}>
-                            <span className={"h3"} >{car.assembler} {car.model}</span>
-                        </div>
-                        <div className={"row"}>
-                            <span>{car.description}</span>
-                        </div>
-                        <div className={"row"}>
-                            <span>{car.year}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Card className="m-2 bg-light">
+            <Carousel fade interval={null}>
+                {carouselItem}
+            </Carousel>
+            <Card.Body>
+                <Card.Title style={{ width: '100%' }} className="d-inline-block text-truncate">{car.assembler} {car.model}</Card.Title>
+                <Card.Text>
+                    {car.description}
+                </Card.Text>
+            </Card.Body>
+        </Card>
     )
 }
 
