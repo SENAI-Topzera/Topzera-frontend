@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 //import './styles.css';
 import { Nav, Navbar, Container } from "react-bootstrap";
 
@@ -16,8 +17,42 @@ function TopNavbar() {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+=======
+import Navbar from 'react-bootstrap/Navbar'
+import homeIcon from '../../assets/icons/home-icon.svg';
+import profileIcon from '../../assets/icons/profile-icon.svg';
+
+function NavbarTop() {
+    return (
+        <Navbar className="mb-5" bg="primary" variant="dark">
+                <Navbar.Brand href="#home" className="mx-3"><h2>Topzera</h2></Navbar.Brand>
+                <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Brand href="#home">
+                        <img
+                            alt="Home"
+                            src={homeIcon}
+                            width="32"
+                            height="32"
+                            className="d-inline-block align-top"
+                        />{' '}
+                        </Navbar.Brand>
+                        <Navbar.Brand href="#profile">
+                        <img
+                            alt="Profile"
+                            src={profileIcon}
+                            width="32"
+                            height="32"
+                            className="d-inline-block align-top"
+                        />{' '}
+                        </Navbar.Brand>
+                </Navbar.Collapse>
+>>>>>>> Stashed changes
         </Navbar>
     );
 }
 
+<<<<<<< Updated upstream
 export default TopNavbar;
+=======
+export default NavbarTop;
+>>>>>>> Stashed changes

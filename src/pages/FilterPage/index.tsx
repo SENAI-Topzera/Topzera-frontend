@@ -3,7 +3,10 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/requests';
 import { Car } from '../../types/car';
 import CarCard from 'components/CarCard';
+<<<<<<< Updated upstream:src/pages/Home/index.tsx
 import { Container, Row, Col, Nav, Form } from "react-bootstrap";
+=======
+>>>>>>> Stashed changes:src/pages/FilterPage/index.tsx
 //import './styles.css';
 
 function Home() {
