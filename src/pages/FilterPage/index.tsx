@@ -3,10 +3,6 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/requests';
 import { Car } from '../../types/car';
 import CarCard from 'components/CarCard';
-<<<<<<< Updated upstream:src/pages/Home/index.tsx
-import { Container, Row, Col, Nav, Form } from "react-bootstrap";
-=======
->>>>>>> Stashed changes:src/pages/FilterPage/index.tsx
 //import './styles.css';
 
 function Home() {
@@ -22,58 +18,17 @@ function Home() {
     }, []);
 
     return (
-        <>
-            <Row>
-                <Col md="3">
-                    <Nav defaultActiveKey="/home" className="flex-column bg-light vh-100">
-                        <Form.Group className="mb-3 mx-3 mt-3" controlId="formBasicPassword">
-                            <Form.Label>Localização</Form.Label>
-                            <Form.Control type="text" placeholder="Digite seu estado ou cidade" />
-                        </Form.Group>
-                        <Form.Group className="mb-3 mx-3" controlId="formBasicPassword">
-                            <Form.Label>Data de disponibilidade</Form.Label>
-                            <Row>
-                                <Col xs="6">
-                                    <Form.Control type="text" placeholder="Data Inicial" />
-                                </Col>
-                                <Col xs="6">
-                                    <Form.Control type="text" placeholder="Data Final" />
-                                </Col>
-                            </Row>
-                        </Form.Group>
-                        <Form.Group className="mb-3 mx-3">
-                            <Form.Label>Tipo</Form.Label>
-                            <Form.Select>
-                                <option>Sedan</option>
-                                <option>SUV</option>
-                                <option>Hatch</option>
-                            </Form.Select>
-                        </Form.Group>
-                        <Form.Group className="mb-3 mx-3">
-                            <Form.Label>Quantidade de lugares</Form.Label>
-                            <Form.Select>
-                                <option selected>Selecione uma quantidade</option>
-                                <option>2</option>
-                                <option>4</option>
-                                <option>7</option>
-                            </Form.Select>
-                        </Form.Group>
-                    </Nav>
-                </Col>
-                <Col md="9">
-                    <Container className='my-4'>
-                        <Row xs={1} md={3} className="g-1">
-                            {cars.map(car => (
-                                <Col key={car.id}>
-                                    <CarCard car={car} />
-                                </Col>
-                            ))}
-                        </Row>
-                    </Container>
-                </Col>
-            </Row>
-        </>
-
+        <div className={"container"}>
+            <div className={"row"}>
+                {
+                    cars.map(car => (
+                        <div key={car.id} className={"col-sm-12 col-md-6 col-lg-4 col-xl-4"}>
+                            <CarCard car={car} />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
     )
 }
 

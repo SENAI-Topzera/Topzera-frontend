@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //import './styles.css';
 import { Nav, Navbar, Container } from "react-bootstrap";
 
@@ -24,6 +25,14 @@ import profileIcon from '../../assets/icons/profile-icon.svg';
 
 function NavbarTop() {
     return (
+=======
+import Navbar from 'react-bootstrap/Navbar'
+import homeIcon from '../../assets/icons/home-icon.svg';
+import profileIcon from '../../assets/icons/profile-icon.svg';
+
+function NavbarTop() {
+    return (
+>>>>>>> Stashed changes
         <Navbar className="mb-5" bg="primary" variant="dark">
                 <Navbar.Brand href="#home" className="mx-3"><h2>Topzera</h2></Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
@@ -46,13 +55,20 @@ function NavbarTop() {
                         />{' '}
                         </Navbar.Brand>
                 </Navbar.Collapse>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </Navbar>
     );
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 export default TopNavbar;
+=======
+export default NavbarTop;
+>>>>>>> Stashed changes
 =======
 export default NavbarTop;
 >>>>>>> Stashed changes
