@@ -3,12 +3,13 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/requests';
 import { Car } from '../../types/car';
 import CarCard from 'components/CarCard';
-import { Container, Row, Col, Nav, Form } from "react-bootstrap";
+import { Container, Row, Col, Nav, Form, Placeholder } from "react-bootstrap";
 //import './styles.css';
 
 function Home() {
 
     const [cars, setCars] = useState<Car[]>([]);
+    const [isFocus, setIsFocus] = useState(false);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/cars`)
@@ -17,6 +18,11 @@ function Home() {
                 setCars(data);
             });
     }, []);
+
+    const changeToDateType = (event: React.FocusEvent<HTMLInputElement>) => {
+        setIsFocus(true);
+        console.log(event);
+    };
 
     return (
         <>
@@ -30,17 +36,18 @@ function Home() {
                         <Form.Group className="mb-3 mx-3" controlId="formBasicPassword">
                             <Form.Label>Data de disponibilidade</Form.Label>
                             <Row>
-                                <Col xs="6">
-                                    <Form.Control type="text" placeholder="Data Inicial" />
+                                <Col xs="6" className="px-0">
+                                    <Form.Control type="text" placeholder='Data Inicial' onFocus={changeToDateType}/>
                                 </Col>
                                 <Col xs="6">
-                                    <Form.Control type="text" placeholder="Data Final" />
+                                    <Form.Control type="date" placeholder="Data Final" />
                                 </Col>
                             </Row>
                         </Form.Group>
                         <Form.Group className="mb-3 mx-3">
                             <Form.Label>Tipo</Form.Label>
                             <Form.Select>
+                            <option selected disabled>Selecione um tipo de carro</option>
                                 <option>Sedan</option>
                                 <option>SUV</option>
                                 <option>Hatch</option>
@@ -49,7 +56,7 @@ function Home() {
                         <Form.Group className="mb-3 mx-3">
                             <Form.Label>Quantidade de lugares</Form.Label>
                             <Form.Select>
-                                <option selected>Selecione uma quantidade</option>
+                                <option selected disabled>Selecione uma quantidade</option>
                                 <option>2</option>
                                 <option>4</option>
                                 <option>7</option>
