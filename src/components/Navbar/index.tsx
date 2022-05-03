@@ -1,5 +1,7 @@
-//import './styles.css';
+import { ReactComponent as HouseIcon } from './../../assets/icons/house-door-fill.svg';
+import { ReactComponent as PersonIcon } from './../../assets/icons/person-fill.svg';
 import { Nav, Navbar, Container } from "react-bootstrap";
+import './styles.css';
 
 function TopNavbar() {
     return (
@@ -11,8 +13,12 @@ function TopNavbar() {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link className="text-dark fw-bold" href="#home">Home</Nav.Link>
-                        <Nav.Link className="text-dark fw-bold" href="#profile">Profile</Nav.Link>
+                        <Nav.Link className="text-dark fw-bold" href="#home">
+                            <HouseIcon/>
+                        </Nav.Link>
+                        <Nav.Link className="text-dark fw-bold" href="#home">
+                            <PersonIcon/>
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
