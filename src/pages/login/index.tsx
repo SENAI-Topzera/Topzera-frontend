@@ -52,29 +52,6 @@ function login() {
 
                 </Col>
             </Row>
-            {/* <Container className="bg-dark vh-100 col-6">
-                <Form className="col-8">
-                    <Form.Text> <p>Faça o seu login aqui </p></Form.Text>
-                    <Form.Group className="mb-3">
-                        <Form.Control type="email" placeholder="Email" />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Control type="password" placeholder="Senha" />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Text> <a href="/forgetPassword">Esqueci minha senha</a> </Form.Text>
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Button variant="primary" className="w-25 p-1">
-                            Login
-                        </Button>
-                        <Button variant="primary" className="w-25 p-1">
-                            Cadastrar
-                        </Button>
-                    </Form.Group>
-                </Form>
-            </Container> */}
         </>
     )
 }
