@@ -1,17 +1,23 @@
+
 .nav-container {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
 
 .icon {
-    font-size: 40px;
+    width: 32px;
+    height: 32px;
+}
+  
+.icon:hover {
+    fill: #F2F2F2;
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #FFF;
+    color: #F2F2F2;
     height: 60px;
 }
 
