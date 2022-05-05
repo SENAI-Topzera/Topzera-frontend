@@ -1,8 +1,5 @@
 import { ReactComponent as HouseIcon } from './../../assets/icons/house-door-fill.svg';
 import { ReactComponent as PersonIcon } from './../../assets/icons/person-fill.svg';
-import homeIcon from '../../assets/icons/home-icon.svg';
-import profileIcon from '../../assets/icons/profile-icon.svg';
-//import './styles.css';
 import { Nav, Navbar, Container } from "react-bootstrap";
 import './styles.css';
 
