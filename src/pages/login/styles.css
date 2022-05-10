@@ -1,11 +1,7 @@
-body{
+ .imgCar{
     background-image: url('assets/img/dodge.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
     overflow: hidden;
-}
-
-a {
-    color: white;
-}
+} 

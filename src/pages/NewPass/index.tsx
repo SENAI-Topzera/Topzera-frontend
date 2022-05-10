@@ -1,5 +1,4 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import './styles.css';
 
 function forgetPassword() {
     return (
@@ -11,10 +10,15 @@ function forgetPassword() {
                     <Form>
                         <Row>
 
-                            <h3 className='text-light text-center'> Informe o seu e-mail e enviaremos um link para definição de uma nova senha</h3>
-                            <Form.Group className="mb-3 text-light" controlId="formBasicEmail">
-                                <Form.Label>E-mail</Form.Label>
-                                <Form.Control type="email" />
+                            <h3 className='text-light text-center'> Informe uma nova senha</h3>
+                            <Form.Group className="mb-3 text-light">
+                                <Form.Label>Senha</Form.Label>
+                                <Form.Control type="password" />
+                            </Form.Group>
+
+                            <Form.Group className="mb-3 text-light">
+                                <Form.Label>Confirmar Senha</Form.Label>
+                                <Form.Control type="password" />
                             </Form.Group>
                         </Row>
 
@@ -26,7 +30,7 @@ function forgetPassword() {
                             </Col>
                             <Col>
                                 <Button variant="primary" type="submit" className='w-100'>
-                                    Enviar
+                                    Finalizar
                                 </Button>
                             </Col>
                         </Row>
