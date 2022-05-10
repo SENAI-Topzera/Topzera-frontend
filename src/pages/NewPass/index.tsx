@@ -1,6 +1,6 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
-function forgetPassword() {
+function newPass() {
     return (
         <Container >
             <Row>
@@ -10,7 +10,7 @@ function forgetPassword() {
                     <Form>
                         <Row>
 
-                            <h3 className='text-light text-center'> Informe uma nova senha</h3>
+                            <h3 className='text-light text-center'>Informe uma nova senha</h3>
                             <Form.Group className="mb-3 text-light">
                                 <Form.Label>Senha</Form.Label>
                                 <Form.Control type="password" />
@@ -44,4 +44,4 @@ function forgetPassword() {
     )
 }
 
-export default forgetPassword;
+export default newPass;
