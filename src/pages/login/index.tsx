@@ -1,5 +1,4 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 function login() {
