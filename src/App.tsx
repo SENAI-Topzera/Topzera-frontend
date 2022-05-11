@@ -1,19 +1,19 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.scss';
-import Navbar from 'components/Navbar';
-import Home from './pages/Home';
 import Login from "./pages/login/index";
 import ForgetPassword from "./pages/forgetPassword/index";
+import FilterPage from "./pages/FilterPage/index";
+import NewPass from "./pages/NewPass/index";
 //import './App.scss';
 
 function App() {
   return (
     <BrowserRouter>
-    <Navbar />
     <Routes>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/home" element={<Home/>}/>
         <Route path="/forgetPassword" element={<ForgetPassword/>}/>
+        <Route path="/filterPage" element={<FilterPage/>}/>
+        <Route path="/newPass" element={<NewPass/>}/>
     </Routes>
     </BrowserRouter>
 )
