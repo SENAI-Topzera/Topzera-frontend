@@ -1,20 +1,25 @@
+$primary: #FFCD39;
+$light: #F2F2F2;
+$dark: #212529;
+$secondary: #3462D5;
+
 $theme-colors: (
     "white": #fff,
     "black": #000000,
     "gray": #6c757d,
     "gray-dark": #343a40,
-    "primary": #FFCD39,
-    "secondary": #3462D5,
+    "primary": $primary,
+    "secondary": $secondary,
     "success": #28a745,
     "info": #17a2b8,
     "warning": #ffc107,
     "danger": #dc3545,
-    "light": #F2F2F2,
-    "dark": #212529,
+    "light": $light,
+    "dark": $dark,
 );
 
 .btn-primary:hover {
-    color: #F2F2F2 !important;
+    color: $light !important;
     font-weight: bold !important;
 }
 
@@ -31,7 +36,7 @@ html, body {
 }
 
 .nav-link:hover {
-    color: #F2F2F2 !important;
+    color: $light !important;
     text-shadow: 0 0 3px #212529;
     transition: 0.5s;
 }

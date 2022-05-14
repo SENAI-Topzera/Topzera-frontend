@@ -67,6 +67,7 @@ function registerUser() {
                                     <Form.Check
                                         inline
                                         label="Outro"
+                                        name="group1"
                                         type="radio"
                                         id={`inline-radio-3`}
                                     />
