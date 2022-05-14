@@ -22,11 +22,11 @@ function Home() {
     return (
         <>
             <Navbar />
-            <Row>
-                <Col md="3">
+            <Row className='mx-0'>
+                <Col md="3" className='px-0'>
                     <FilterBar />
                 </Col>
-                <Col md="9">
+                <Col md="9" className=''>
                     <Container className='my-4'>
                         <Row xs={1} md={3} className="g-1">
                             {cars.map(car => (

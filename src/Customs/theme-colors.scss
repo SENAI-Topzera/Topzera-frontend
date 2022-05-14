@@ -13,12 +13,30 @@ $theme-colors: (
     "dark": #212529,
 );
 
+.btn-primary:hover {
+    color: #F2F2F2 !important;
+    font-weight: bold !important;
+}
+
+.btn-primary {
+    color: #212529 !important;
+    font-weight: bold !important;
+}
+
 html, body {
     background-color: #212529 !important;
+    height: 100%;
+    min-height: 100%;
+    margin:0;
 }
 
 .nav-link:hover {
     color: #F2F2F2 !important;
     text-shadow: 0 0 3px #212529;
     transition: 0.5s;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
