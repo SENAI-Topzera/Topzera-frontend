@@ -6,7 +6,6 @@ import CarCard from 'components/CarCard';
 import FilterBar from 'components/Filterbar';
 import Navbar from 'components/Navbar'
 import { Container, Row, Col } from "react-bootstrap";
-//import './styles.css';
 
 function Home() {
 
