@@ -7,6 +7,10 @@ type Props = {
 
 function SliderStatus({ statusID }: Props) {
 
+    for (let i = 1; i < 5; i++) {
+        document.getElementById(String(i))?.removeAttribute("checked");
+    }
+
     const radioStatus = document.getElementById(String(statusID));
     radioStatus?.setAttribute("checked", "checked");
         

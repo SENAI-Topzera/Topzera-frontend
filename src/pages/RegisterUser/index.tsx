@@ -4,93 +4,87 @@ import SliderStatus from 'components/SliderStatusRegisterUser'
 import PersonalDataForm from './personalData';
 import CNHForm from './CNH';
 import AddressForm from './addressData';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-interface IState {
-    currentForm: number;
-}
+// interface IState {
+//     currentForm: number;
+// }
 
 class registerUser extends React.Component {
-    
+
     state = {
         hideFormPersonalData: false,
         hideFormCNH: true,
         hideFormAddressData: true,
         currentForm: 1
     };
-    
-    continuar() {
-        this.setState(
-            () => {           
 
-                console.log("form atual = " + this.state.currentForm)
+    navigateForm = () => {
 
-                this.setState({
-                    hideFormPersonalData: true,
-                    hideFormCNH: true,
-                    hideFormAddressData: true,
-                    currentForm: this.state.currentForm + 1
-                })
+        this.state.hideFormPersonalData = true;
+        this.state.hideFormCNH = true;
+        this.state.hideFormAddressData = true;
 
-                if (this.state.currentForm == 1) {
-                    this.setState({ hideFormPersonalData: false })
-                }
-                if (this.state.currentForm == 2) {
-                    this.setState({ hideFormCNH: false })
-                }
-                if (this.state.currentForm == 3) {
-                    this.setState({ hideFormAddressData: false })
-                }
-                if (this.state.currentForm >= 4) {                    
-                }
-            });
+        switch (this.state.currentForm) {
+            case 1:
+                this.state.hideFormPersonalData = false;
+                alert("ativa Dados Pessoais")
+                break;
+            case 2:
+                this.state.hideFormCNH = false;
+                alert("ativa CNH")
+                break;
+            case 3:
+                this.state.hideFormAddressData = false;
+                alert("ativa Endereco")
+                break;
+            case 4:
+                break;
+            default:
+                break;
+        }
     }
 
-    voltar() {
-        this.setState(
-            () => {           
-
-                console.log("form atual = " + this.state.currentForm)
-
-                this.setState({
-                    hideFormPersonalData: true,
-                    hideFormCNH: true,
-                    hideFormAddressData: true,
-                    currentForm: this.state.currentForm - 1
-                })
-
-                if (this.state.currentForm == 1) {
-                    this.setState({ hideFormPersonalData: false })
-                }
-                if (this.state.currentForm == 2) {
-                    this.setState({ hideFormCNH: false })
-                }
-                if (this.state.currentForm == 3) {
-                    this.setState({ hideFormAddressData: false })
-                }
-                if (this.state.currentForm <= 1) {                                      
-                }
+    continue = () => {
+        if (this.state.currentForm < 4) {
+            this.setState({ currentForm: this.state.currentForm + 1 }, () => {
+                this.navigateForm();
             });
+        }
+    }
+
+    back = () => {
+        if (this.state.currentForm > 1) {
+            this.setState({ currentForm: this.state.currentForm - 1 }, () => {
+                this.navigateForm();
+            })
+        }
     }
 
     render() {
+
+        // useEffect(() => {
+        //     console.log('hello world');
+        // }, []);
+
         return (
             <>
                 <Navbar />
-                <PersonalDataForm isHidden={this.state.hideFormPersonalData} />
+                {/* <PersonalDataForm isHidden={!this.state.hideFormPersonalData} /> */}
                 <CNHForm isHidden={this.state.hideFormCNH} />
-                <AddressForm isHidden={this.state.hideFormAddressData} />
+                {/* k<AddressForm isHidden={!this.state.hideFormAddressData} /> */}
                 <Container>
                     <Container>
                         <Row >
                             <Col md="6" className="d-flex flex-row">
-                                <Button id="voltarForm" variant="primary" type="button" onClick={() => this.voltar()}>Voltar</Button>
+                                <Button id="voltarForm" variant="primary" type="button" onClick={this.back}>Voltar</Button>
                             </Col>
                             <Col md="6" className="d-flex flex-row-reverse">
-                                <Button id="continuarForm" variant="primary" type="button" onClick={() => this.continuar()}>Continuar</Button>
+                                <Button id="continuarForm" variant="primary" type="button" onClick={this.continue}>Continuar</Button>
                             </Col>
                         </Row>
-                        <SliderStatus  statusID={this.state.currentForm} />
+                        <Row><p className='text-light'>{this.state.currentForm}</p></Row>
+                        <SliderStatus statusID={this.state.currentForm} />
                     </Container>
                 </Container>
             </>
