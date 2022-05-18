@@ -4,7 +4,7 @@ type Props = {
     isHidden: boolean;
 }
 
-function registerPersonalData({ isHidden }: Props) {
+function RegisterPersonalData({ isHidden }: Props) {
     return (
         <>
             <Container hidden={isHidden}>
@@ -98,4 +98,4 @@ function registerPersonalData({ isHidden }: Props) {
     )
 }
 
-export default registerPersonalData;
+export default RegisterPersonalData;

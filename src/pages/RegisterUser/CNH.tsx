@@ -7,7 +7,7 @@ type Props = {
     isHidden: boolean;
 }
 
-function registerCNH({ isHidden }: Props) {
+function RegisterCNH({ isHidden }: Props) {
     return (
         <>
             <Container hidden={isHidden}>
@@ -77,4 +77,4 @@ function registerCNH({ isHidden }: Props) {
     )
 }
 
-export default registerCNH;
+export default RegisterCNH;

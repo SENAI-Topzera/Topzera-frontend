@@ -1,96 +1,97 @@
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import Navbar from 'components/Navbar'
 import SliderStatus from 'components/SliderStatusRegisterUser'
 import PersonalDataForm from './personalData';
 import CNHForm from './CNH';
 import AddressForm from './addressData';
-import React, { useEffect, useState } from 'react';
+import ConcludedRegister from './concluded';
+import './style.scss';
 
-// interface IState {
-//     currentForm: number;
-// }
+function RegisterUser() {
 
-class registerUser extends React.Component {
+    const [currentForm, setCurrentForm] = useState(1);
+    const [hideFormPersonalData, setHideFormPersonalData] = useState(true);
+    const [hideFormCNH, setHideFormCNH] = useState(true);
+    const [hideFormAddressData, setHideFormAddressData] = useState(true);
+    const [hideConcludedRegister, setHideConcludedRegister] = useState(true);
 
-    state = {
-        hideFormPersonalData: false,
-        hideFormCNH: true,
-        hideFormAddressData: true,
-        currentForm: 1
+    const continueForm = (event: React.MouseEvent) => {
+        if (currentForm < 4) {
+            setCurrentForm(currentForm + 1);
+        }
     };
 
-    navigateForm = () => {
+    const backForm = (event: React.MouseEvent) => {
+        if (currentForm > 1) {
+            setCurrentForm(currentForm - 1);
+        }
+    };
 
-        this.state.hideFormPersonalData = true;
-        this.state.hideFormCNH = true;
-        this.state.hideFormAddressData = true;
+    useEffect(() => {
+        setHideFormPersonalData(false)
+        console.log('effect will run once');
+    }, []);
 
-        switch (this.state.currentForm) {
+    useEffect(() => {
+        console.log('effect will run if current Form has changed');
+
+        setHideFormPersonalData(true);
+        setHideFormCNH(true);
+        setHideFormAddressData(true);
+        setHideConcludedRegister(true);
+
+        switch (currentForm) {
             case 1:
-                this.state.hideFormPersonalData = false;
-                alert("ativa Dados Pessoais")
+                setHideFormPersonalData(false);
                 break;
             case 2:
-                this.state.hideFormCNH = false;
-                alert("ativa CNH")
+                setHideFormCNH(false);
                 break;
             case 3:
-                this.state.hideFormAddressData = false;
-                alert("ativa Endereco")
+                setHideFormAddressData(false);
                 break;
             case 4:
+                setHideConcludedRegister(false);
                 break;
             default:
                 break;
         }
-    }
+    }, [currentForm]);
 
-    continue = () => {
-        if (this.state.currentForm < 4) {
-            this.setState({ currentForm: this.state.currentForm + 1 }, () => {
-                this.navigateForm();
-            });
-        }
-    }
+    return (
+        <>
+            <Navbar />
 
-    back = () => {
-        if (this.state.currentForm > 1) {
-            this.setState({ currentForm: this.state.currentForm - 1 }, () => {
-                this.navigateForm();
-            })
-        }
-    }
-
-    render() {
-
-        // useEffect(() => {
-        //     console.log('hello world');
-        // }, []);
-
-        return (
-            <>
-                <Navbar />
-                {/* <PersonalDataForm isHidden={!this.state.hideFormPersonalData} /> */}
-                <CNHForm isHidden={this.state.hideFormCNH} />
-                {/* k<AddressForm isHidden={!this.state.hideFormAddressData} /> */}
+            <Container>
+                <div id="container-form" className="">
+                    <PersonalDataForm isHidden={hideFormPersonalData} />
+                    <CNHForm isHidden={hideFormCNH} />
+                    <AddressForm isHidden={hideFormAddressData} />
+                    <ConcludedRegister isHidden={hideConcludedRegister} />
+                </div>
                 <Container>
-                    <Container>
-                        <Row >
-                            <Col md="6" className="d-flex flex-row">
-                                <Button id="voltarForm" variant="primary" type="button" onClick={this.back}>Voltar</Button>
-                            </Col>
-                            <Col md="6" className="d-flex flex-row-reverse">
-                                <Button id="continuarForm" variant="primary" type="button" onClick={this.continue}>Continuar</Button>
-                            </Col>
-                        </Row>
-                        <Row><p className='text-light'>{this.state.currentForm}</p></Row>
-                        <SliderStatus statusID={this.state.currentForm} />
-                    </Container>
+                    <Row hidden={hideConcludedRegister}>
+                        <Col md="5">
+                        </Col>
+                        <Col md="2" className="d-grid">
+                            <Button id="voltarForm" variant="primary" type="button">Finalizar</Button>
+                        </Col>
+                        <Col md="5">
+                        </Col>
+                    </Row>
+                    <Row hidden={!hideConcludedRegister}>
+                        <Col md="6" className="d-flex flex-row">
+                            <Button id="voltarForm" variant="primary" type="button" onClick={backForm}>Voltar</Button>
+                        </Col>
+                        <Col md="6" className="d-flex flex-row-reverse">
+                            <Button id="continuarForm" variant="primary" type="button" onClick={continueForm}>Continuar</Button>
+                        </Col>
+                    </Row>
                 </Container>
-            </>
-        )
-    }
-
-}
-
-export default registerUser;
+                <SliderStatus statusID={currentForm} />
+                <Row className="py-5"></Row>
+            </Container>
+        </>
+    )
+} export default RegisterUser;

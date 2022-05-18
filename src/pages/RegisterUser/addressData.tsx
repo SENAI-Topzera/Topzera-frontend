@@ -4,7 +4,7 @@ type Props = {
     isHidden: boolean;
 }
 
-function registerAddress({ isHidden }: Props) {
+function RegisterAddress({ isHidden }: Props) {
     return (
         <>
             <Container hidden={isHidden}>
@@ -60,4 +60,4 @@ function registerAddress({ isHidden }: Props) {
     )
 }
 
-export default registerAddress;
+export default RegisterAddress;
