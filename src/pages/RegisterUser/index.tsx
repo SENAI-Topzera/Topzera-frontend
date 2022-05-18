@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import Navbar from 'components/Navbar'
 import SliderStatus from 'components/SliderStatusRegisterUser'
 import PersonalDataForm from './personalData';

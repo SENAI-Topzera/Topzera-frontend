@@ -1,7 +1,5 @@
 import { Container, Row, Col, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { ReactComponent as InfoIcon } from './../../assets/icons/info-circle.svg';
-import Navbar from 'components/Navbar'
-import SliderStatus from 'components/SliderStatusRegisterUser'
 
 type Props = {
     isHidden: boolean;
