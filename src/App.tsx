@@ -5,6 +5,7 @@ import ForgetPassword from "./pages/forgetPassword/index";
 import FilterPage from "./pages/FilterPage/index";
 import NewPass from "./pages/NewPass/index";
 import RegisterUser from "./pages/RegisterUser/index";
+import MyAccount from "./pages/MyAccount/index";
 //import './App.scss';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/filterPage" element={<FilterPage/>}/>
         <Route path="/newPass" element={<NewPass/>}/>
         <Route path="/register-user" element={<RegisterUser/>}/>
+        <Route path="/myAccount" element={<MyAccount/>}/>
     </Routes>
     </BrowserRouter>
 )
