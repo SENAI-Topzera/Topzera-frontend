@@ -5,7 +5,7 @@ import './styles.css';
 
 function TopNavbar() {
     return (
-        <Navbar bg="primary">
+        <Navbar className='' bg="primary">
             <Container fluid className="mx-3">
                 <Navbar.Brand href="#home" className="text-dark">
                     <h1>Topzera</h1>
