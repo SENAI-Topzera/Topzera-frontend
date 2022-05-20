@@ -16,7 +16,7 @@ function TopNavbar() {
                         <Nav.Link className="text-dark fw-bold" href="#home">
                             <HouseIcon />
                         </Nav.Link>
-                        <Nav.Link className="text-dark fw-bold" href="/login">
+                        <Nav.Link className="text-dark fw-bold" href="/myAccount">
                             <PersonIcon />
                         </Nav.Link>
                     </Nav>
