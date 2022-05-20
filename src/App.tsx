@@ -4,6 +4,7 @@ import Login from "./pages/login/index";
 import ForgetPassword from "./pages/forgetPassword/index";
 import FilterPage from "./pages/FilterPage/index";
 import NewPass from "./pages/NewPass/index";
+import MyAccount from "./pages/MyAccount/index";
 //import './App.scss';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/forgetPassword" element={<ForgetPassword/>}/>
         <Route path="/filterPage" element={<FilterPage/>}/>
         <Route path="/newPass" element={<NewPass/>}/>
+        <Route path="/myAccount" element={<MyAccount/>}/>
     </Routes>
     </BrowserRouter>
 )
