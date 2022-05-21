@@ -10,7 +10,7 @@ function myAccount() {
                 <Col md="3">
                     <LeftAccountBar />
                 </Col>
-                <Col md="9" className="d-flex align-items-center vh-100">
+                <Col md="9" className="d-flex align-items-center vh-100-navbar">
                     <Container className=" ">
                         <Row className="d-flex align-items-center justify-content-center flex-column" mb="2">
                             <Row>

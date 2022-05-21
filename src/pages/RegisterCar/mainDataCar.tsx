@@ -1,12 +1,79 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { ReactComponent as InfoIcon } from './../../assets/icons/info-circle.svg';
+import { BrandCar } from '../../types/brandCar';
+import { ModelCar } from '../../types/modelCar';
+import { YearCar } from '../../types/yearCar';
+import axios from 'axios';
 
 function CarMainData() {
 
+    const [brands, setBrands] = useState<BrandCar[]>([]);
+    const [models, setModels] = useState<ModelCar[]>([]);
+    const [years, setYears] = useState<YearCar[]>([]);
+
+    const [idMarca, setMarca] = useState('');
+    const [idModelo, setModelo] = useState('');
+    const [ano, setAno] = useState('');
+
+    const brandBody = {
+        codigoTabelaReferencia: 270,
+        codigoTipoVeiculo: 1
+    };
+
+    const headers = {
+        'chave': '$2y$10$8IAZn7HKq7QJWbh37N3GOOeRVv'
+    };
+
+
     useEffect(() => {
-        console.log('executa ao iniciar');
+        axios.post(`https://fipe.contrateumdev.com.br/api/ConsultarMarcas`, brandBody, { headers })
+            .then(response => {
+                const data = response.data as BrandCar[];
+                setBrands(data);
+                console.log(data);
+            });
     }, []);
+
+    useEffect(() => {
+        var modelBody = {
+            codigoTabelaReferencia: 231,
+            codigoTipoVeiculo: 1,
+            codigoMarca: idMarca
+        };
+
+        axios.post(`https://fipe.contrateumdev.com.br/api/ConsultarModelos`, modelBody, { headers })
+            .then(response => {
+                const data = response.data.Modelos as ModelCar[];
+                setModels(data);
+                console.log(data);
+            });
+    }, [idMarca]);
+
+    useEffect(() => {
+        var yearBody = {
+            codigoTabelaReferencia: 231,
+            codigoTipoVeiculo: 1,
+            codigoMarca: idMarca,
+            codigoModelo: idModelo
+        };
+
+        axios.post(`https://fipe.contrateumdev.com.br/api/ConsultarAnoModelo`, yearBody, { headers })
+            .then(response => {
+                const data = response.data as YearCar[];
+                setYears(data);
+                console.log(data);
+            });
+    }, [idModelo]);
+
+    //{
+    //    const data = response.data as ModelCar[];
+    //   setModels(data);
+    //}
+
+    // useEffect(() => {
+    //     console.log('executa ao iniciar');
+    // }, []);
 
     return (
         <>
@@ -20,33 +87,33 @@ function CarMainData() {
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Marca</Form.Label>
-                                <Form.Select aria-label="Marca">
-                                    <option disabled selected>Selecione</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <Form.Select aria-label="Marca" defaultValue={idMarca} onChange={e => setMarca(e.target.value)}>
+                                    <option value="default" disabled>Selecione</option>
+                                    {brands?.map((brand, index) => (
+                                        <option key={index} value={brand.Value}>{brand.Label}</option>
+                                    ))}
                                 </Form.Select>
                             </Form.Group>
                         </Col>
                         <Col md="6">
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Modelo</Form.Label>
-                                <Form.Select aria-label="Modelo">
-                                    <option disabled selected>Selecione</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <Form.Select aria-label="Modelo" value={idModelo} onChange={e => setModelo(e.target.value)}>
+                                    <option value="default" disabled>Selecione</option>
+                                    {models?.map((model, index) => (
+                                        <option key={index} value={model.Value}>{model.Label}</option>
+                                    ))}
                                 </Form.Select>
                             </Form.Group>
                         </Col>
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Ano do Modelo</Form.Label>
-                                <Form.Select aria-label="Ano do Modelo">
-                                    <option disabled selected>Selecione</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <Form.Select aria-label="Ano do Modelo" value={ano} onChange={e => setAno(e.target.value)}>
+                                    <option value="default" disabled>Selecione</option>
+                                    {/* {years?.map((year, index) => (
+                                        <option key={index} value={year.Value}>{year.Label}</option>
+                                    ))} */}
                                 </Form.Select>
                             </Form.Group>
                         </Col>
@@ -56,7 +123,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Cor</Form.Label>
                                 <Form.Select aria-label="Cor">
-                                    <option disabled selected>Selecione</option>
+                                    <option disabled >Selecione</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -73,7 +140,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Combustível usado</Form.Label>
                                 <Form.Select aria-label="Combustível usado">
-                                    <option disabled selected>Selecione</option>
+                                    <option disabled >Selecione</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -84,7 +151,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Câmbio</Form.Label>
                                 <Form.Select aria-label="Câmbio">
-                                    <option disabled selected>Selecione</option>
+                                    <option disabled >Selecione</option>
                                     <option value="1">Manual</option>
                                     <option value="2">Automatico</option>
                                 </Form.Select>
@@ -108,7 +175,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Capacidade de Bagagem</Form.Label>
                                 <Form.Select aria-label="Capacidade de Bagagem">
-                                    <option disabled selected>Selecione</option>
+                                    <option disabled >Selecione</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
@@ -118,9 +185,9 @@ function CarMainData() {
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Número do Registro
-                                <OverlayTrigger placement="right" overlay={<Tooltip id="tooltip-registro">Informe o número do registro do veículo</Tooltip>}>
-                                            <span className="px-1">< InfoIcon /></span>
-                                        </OverlayTrigger>
+                                    <OverlayTrigger placement="right" overlay={<Tooltip id="tooltip-registro">Informe o número do registro do veículo</Tooltip>}>
+                                        <span className="px-1">< InfoIcon /></span>
+                                    </OverlayTrigger>
                                 </Form.Label>
                                 <Form.Control type="text" placeholder="" />
                             </Form.Group>

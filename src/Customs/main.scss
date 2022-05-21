@@ -1,0 +1,9 @@
+$navbar-size: 64px;
+
+.vh-100-navbar {
+    height: calc( 100vh - $navbar-size ) !important;
+}
+
+#container-form {
+    height: calc(500px - $navbar-size);
+}

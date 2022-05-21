@@ -62,36 +62,42 @@ function RegisterUser() {
     return (
         <>
             <Navbar />
-
-            <Container>
-                <div id="container-form" className="">
-                    <PersonalDataForm isHidden={hideFormPersonalData} />
-                    <CNHForm isHidden={hideFormCNH} />
-                    <AddressForm isHidden={hideFormAddressData} />
-                    <ConcludedRegister isHidden={hideConcludedRegister} />
-                </div>
-                <Container>
-                    <Row hidden={hideConcludedRegister}>
-                        <Col md="5">
-                        </Col>
-                        <Col md="2" className="d-grid">
-                            <Button id="voltarForm" variant="primary" type="button">Finalizar</Button>
-                        </Col>
-                        <Col md="5">
-                        </Col>
-                    </Row>
-                    <Row hidden={!hideConcludedRegister}>
-                        <Col md="6" className="d-flex flex-row">
-                            <Button id="voltarForm" variant="primary" type="button" onClick={backForm}>Voltar</Button>
-                        </Col>
-                        <Col md="6" className="d-flex flex-row-reverse">
-                            <Button id="continuarForm" variant="primary" type="button" onClick={continueForm}>Continuar</Button>
-                        </Col>
-                    </Row>
-                </Container>
-                <SliderStatus statusID={currentForm} />
-                <Row className="py-5"></Row>
-            </Container>
+            <Row>
+                <Col md="12" >
+                        <PersonalDataForm isHidden={hideFormPersonalData} />
+                        <CNHForm isHidden={hideFormCNH} />
+                        <AddressForm isHidden={hideFormAddressData} />
+                        <ConcludedRegister isHidden={hideConcludedRegister} />
+                </Col>
+            </Row>
+            <Row>
+                <Col md="12">
+                    <Container>
+                        <Row hidden={hideConcludedRegister}>
+                            <Col md="5">
+                            </Col>
+                            <Col md="2" className="d-grid">
+                                <Button id="voltarForm" variant="primary" type="button">Finalizar</Button>
+                            </Col>
+                            <Col md="5">
+                            </Col>
+                        </Row>
+                        <Row hidden={!hideConcludedRegister}>
+                            <Col xs={6} className="d-flex flex-row">
+                                <Button id="voltarForm" className="px-3 mx-4" variant="primary" type="button" onClick={backForm}>Voltar</Button>
+                            </Col>
+                            <Col xs={6} className="d-flex flex-row-reverse">
+                                <Button id="continuarForm" className="px-3 mx-4" variant="primary" type="button" onClick={continueForm}>Continuar</Button>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md="12">
+                                <SliderStatus statusID={currentForm} />
+                            </Col>
+                        </Row>
+                    </Container>
+                </Col>
+            </Row>
         </>
     )
 } export default RegisterUser;

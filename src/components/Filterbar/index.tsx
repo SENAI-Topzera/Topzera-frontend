@@ -13,7 +13,7 @@ class FilterBar extends React.Component {
     render() {
 
         return (
-            <Nav defaultActiveKey="/home" className="flex-column bg-light vh-100">
+            <Nav defaultActiveKey="/home" className="flex-column bg-light vh-100-navbar">
                 <Form.Group className="mb-3 mx-3 mt-3" controlId="formBasicPassword">
                     <Form.Label>Localização</Form.Label>
                     <Form.Control type="text" placeholder="Digite seu estado ou cidade" />

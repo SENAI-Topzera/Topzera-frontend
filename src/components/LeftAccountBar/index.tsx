@@ -6,7 +6,7 @@ class leftAccountBar extends React.Component {
     render() {
 
         return (
-            <Nav defaultActiveKey="/home" className="flex-column bg-light vh-100">
+            <Nav defaultActiveKey="/home" className="flex-column bg-light vh-100-navbar">
                 <Row>
                     <Col md="1"></Col>
                     <Col md="10">

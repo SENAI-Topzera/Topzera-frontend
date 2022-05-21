@@ -1,7 +1,8 @@
+@import "../../App.scss";
 
 .nav-container {
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: 2px;
+    margin-top: 2px;
 }
 
 .icon {
@@ -10,14 +11,14 @@
 }
   
 .icon:hover {
-    fill: #F2F2F2;
+    fill: $light;
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #F2F2F2;
+    color: $light;
     height: 60px;
 }
 
@@ -30,10 +31,4 @@
     justify-content: space-between;
     width: 36%;
     display: flex;
-}
-
-.nav-links > span:hover, .nav-icons > i:hover {
-    color: #7427F1;
-    transition: 0.5s;
-    cursor: pointer;
 }

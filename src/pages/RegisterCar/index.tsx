@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Navbar from 'components/Navbar';
-import CarMainData from './carMainData';
+import MainDataCar from './mainDataCar';
 
 function RegisterCar() {
 
@@ -14,7 +14,7 @@ function RegisterCar() {
             <Navbar />
             <Container>
                 {/* DADOS VEICULO */}
-                <CarMainData />
+                <MainDataCar />
 
                 {/* OPCIONAIS VEICULO */}
                 <Row className='pt-5 my-3'>

@@ -33,7 +33,7 @@ function login() {
                                                     </Button>
                                                 </Col>
                                                 <Col>
-                                                    <Button variant="primary" className="w-100">
+                                                    <Button variant="primary" className="w-100" href="/register-user">
                                                         Cadastrar
                                                     </Button>
                                                 </Col>
