@@ -10,11 +10,21 @@ function CarMainData() {
 
     const [brands, setBrands] = useState<BrandCar[]>([]);
     const [models, setModels] = useState<ModelCar[]>([]);
-    const [years, setYears] = useState<YearCar[]>([]);
+    const [yearsCar, setYears] = useState<YearCar[]>([]);
 
     const [idMarca, setMarca] = useState('');
     const [idModelo, setModelo] = useState('');
     const [ano, setAno] = useState('');
+    const [combustivel, setCombustivel] = useState('');
+
+    const RenderAno = () => {
+        try {      
+            return (yearsCar?.map((year, index) => (
+                <option key={index} value={year.Value}>{year.Label}</option>
+            )))
+        } catch (error) {
+        }
+    }
 
     const brandBody = {
         codigoTabelaReferencia: 270,
@@ -25,6 +35,9 @@ function CarMainData() {
         'chave': '$2y$10$8IAZn7HKq7QJWbh37N3GOOeRVv'
     };
 
+    useEffect(() => {
+
+    }, [yearsCar])
 
     useEffect(() => {
         axios.post(`https://fipe.contrateumdev.com.br/api/ConsultarMarcas`, brandBody, { headers })
@@ -64,7 +77,12 @@ function CarMainData() {
                 setYears(data);
                 console.log(data);
             });
+
     }, [idModelo]);
+
+    useEffect(() => {
+        setCombustivel(ano.slice(5, 100));
+    }, [ano])
 
     //{
     //    const data = response.data as ModelCar[];
@@ -87,8 +105,8 @@ function CarMainData() {
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Marca</Form.Label>
-                                <Form.Select aria-label="Marca" defaultValue={idMarca} onChange={e => setMarca(e.target.value)}>
-                                    <option value="default" disabled>Selecione</option>
+                                <Form.Select aria-label="Marca" defaultValue={idMarca} onBlur={e => setMarca(e.target.value)}>
+                                    <option disabled selected>Selecione</option>
                                     {brands?.map((brand, index) => (
                                         <option key={index} value={brand.Value}>{brand.Label}</option>
                                     ))}
@@ -99,7 +117,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Modelo</Form.Label>
                                 <Form.Select aria-label="Modelo" value={idModelo} onChange={e => setModelo(e.target.value)}>
-                                    <option value="default" disabled>Selecione</option>
+                                    <option disabled selected>Selecione</option>
                                     {models?.map((model, index) => (
                                         <option key={index} value={model.Value}>{model.Label}</option>
                                     ))}
@@ -110,10 +128,8 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Ano do Modelo</Form.Label>
                                 <Form.Select aria-label="Ano do Modelo" value={ano} onChange={e => setAno(e.target.value)}>
-                                    <option value="default" disabled>Selecione</option>
-                                    {/* {years?.map((year, index) => (
-                                        <option key={index} value={year.Value}>{year.Label}</option>
-                                    ))} */}
+                                    <option disabled selected>Selecione</option>
+                                    {RenderAno()}
                                 </Form.Select>
                             </Form.Group>
                         </Col>
@@ -141,9 +157,8 @@ function CarMainData() {
                                 <Form.Label>Combustível usado</Form.Label>
                                 <Form.Select aria-label="Combustível usado">
                                     <option disabled >Selecione</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">GNV</option>
+                                    <option value="2">{combustivel}</option>
                                 </Form.Select>
                             </Form.Group>
                         </Col>
