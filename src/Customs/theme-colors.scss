@@ -24,12 +24,17 @@ $theme-colors: (
 }
 
 .btn-primary {
-    color: #212529 !important;
+    color: $dark !important;
+    font-weight: bold !important;
+}
+
+.btn-light {
+    color: $dark !important;
     font-weight: bold !important;
 }
 
 html, body {
-    background-color: #212529 !important;
+    background-color: $dark !important;
     height: 100%;
     min-height: 100%;
     margin:0;
@@ -37,7 +42,7 @@ html, body {
 
 .nav-link:hover {
     color: $light !important;
-    text-shadow: 0 0 3px #212529;
+    text-shadow: 0 0 3px $dark;
     transition: 0.5s;
 }
 
