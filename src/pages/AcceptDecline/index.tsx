@@ -21,12 +21,12 @@ function AcceptDecline() {
                     <Row>
                         <Col md="7" className="d-flex flex-row-reverse"></Col>
                         <Col md="2" >
-                        <Button variant="primary" href='/my-account' className='w-100'>
+                        <Button variant="primary" href='/my-' className='w-100'>
                             Recusar
                         </Button>
                         </Col>
                         <Col md="3" className='p-0'>
-                        <Button variant="secondary" href='/my-account' className='w-100'>
+                        <Button variant="secondary" href='/my-cars' className='w-100'>
                             Aceitar
                         </Button>
                         </Col>
