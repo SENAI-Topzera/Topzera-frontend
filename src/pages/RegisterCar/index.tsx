@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import Navbar from 'components/Navbar';
 import MainDataCar from './mainDataCar';
 import CarOptions from './carOptions';
+import UploadFiles from './uploadFiles';
 
 function RegisterCar() {
 
@@ -21,12 +22,7 @@ function RegisterCar() {
                 <CarOptions />
 
                 {/* FOTOS VEICULO */}
-                <Row className='pt-5 my-3'>
-                    <h3 className='text-light'>Adicione as fotos do seu veículo</h3>
-                </Row>
-                <Container>
-
-                </Container>
+                <UploadFiles/>
 
                 {/* LOCALIZACAO */}
                 <Row className='pt-5 my-3'>
