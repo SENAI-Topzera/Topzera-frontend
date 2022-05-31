@@ -6,6 +6,8 @@ import FilterPage from "./pages/FilterPage/index";
 import NewPass from "./pages/NewPass/index";
 import RegisterUser from "./pages/RegisterUser/index";
 import MyAccount from "./pages/MyAccount/index";
+import MyCars from "./pages/MyCars/index";
+import AcceptDecline from 'pages/AcceptDecline';
 //import './App.scss';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route path="/newPass" element={<NewPass/>}/>
         <Route path="/register-user" element={<RegisterUser/>}/>
         <Route path="/myAccount" element={<MyAccount/>}/>
+        <Route path="/my-cars" element={<MyCars/>}/>
+        <Route path="/accept-decline" element={<AcceptDecline/>}/>
     </Routes>
     </BrowserRouter>
 )
