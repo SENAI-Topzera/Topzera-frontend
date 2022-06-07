@@ -11,7 +11,8 @@ class leftAccountBar extends React.Component {
                     <Col md="1"></Col>
                     <Col md="10">
                         <Container>
-                            <Card className='cardimg'>
+                            <Card className='cardimg mt-2'>
+                                <Card.Img className='cardimg' variant="top" src="" />
                             </Card>
                             <Row>
                                 <Col>
