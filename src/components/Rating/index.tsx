@@ -1,8 +1,16 @@
 import { Car } from '../../types/car';
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import './styles.css'
+import { Rating } from 'react-simple-star-rating'
+import React, { useState } from 'react'
 
-function AcceptDeclineUser() {
+
+export default function AcceptDeclineUser() {
+    const [rating, setRating] = useState(0)
+
+    const handleRating = (rate: number) => {
+        setRating(rate)
+    }
 
     return (
         <>
@@ -15,6 +23,13 @@ function AcceptDeclineUser() {
                         <Row>
                             <Col md="2" className="cardText">
                                 <Card.Title className='text-truncate fs-5'>Jefferson Maylon Zickuhr</Card.Title>
+                                <Rating className='w-100'
+                                    onClick={handleRating}
+                                    ratingValue={80} //editável em porcentagem 
+                                    allowHalfIcon
+                                    size={30}
+                                    readonly
+                                />
                             </Col>
                             <Col>
                                 <Card.Text>
@@ -31,5 +46,3 @@ function AcceptDeclineUser() {
     )
 
 }
-
-export default AcceptDeclineUser;
