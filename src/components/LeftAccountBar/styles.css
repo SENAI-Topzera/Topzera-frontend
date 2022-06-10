@@ -1,4 +1,5 @@
 .cardimg {
     background-color: rgba(163, 163, 163, 1);
     height: 200px;
+    border-radius: 5%;
 }

@@ -7,7 +7,7 @@ function myAccount() {
         <>
             <Navbar />
             <Row>
-                <Col md="3">
+                <Col md="3" className="px-0">
                     <LeftAccountBar />
                 </Col>
                 <Col md="9" className="d-flex align-items-center vh-100-navbar">

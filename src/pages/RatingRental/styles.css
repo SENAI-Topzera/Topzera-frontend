@@ -1,0 +1,14 @@
+.boxCard {
+    height: 30rem;
+    background-color: white;
+}
+
+.personBox {
+    background-color: black;
+    height: 13rem;
+}
+
+.form {
+    resize: none;
+    height: 11rem;
+}
