@@ -21,7 +21,7 @@ function UploadFiles() {
             </Row>
             <Container>
                 <Form.Label className="btn btn-secondary btn-file">
-                    Upload<Form.Control type="file" onChange={selectFiles} />
+                    Upload<Form.Control type="file" onChange={selectFiles} hidden/>
                 </Form.Label>
 
             </Container>
