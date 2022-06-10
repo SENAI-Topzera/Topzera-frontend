@@ -5,16 +5,6 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 function UploadFiles() {
 
     const selectFiles = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let images: string[] = [];
-        // for (let i = 0; i < event.target?.files?.length; i++) {
-        //     //images.push(URL.createObjectURL()) //event.currentTarget.files[i]
-        // }
-
-        const [selectedFiles, setSelectedFiles] = useState(event.currentTarget.files);
-        const [previewImages, setPreviewImages] = useState(images);
-        const [progressInfos, setProgressInfos] = useState([]);
-        const [message, setMessage] = useState([]);
-        const [imageInfos, setImageInfos] = useState([]);
     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
