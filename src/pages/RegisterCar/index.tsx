@@ -4,6 +4,7 @@ import Navbar from 'components/Navbar';
 import MainDataCar from './mainDataCar';
 import CarOptions from './carOptions';
 import UploadFiles from './uploadFiles';
+import SelectLocation from './selectLocation';
 
 function RegisterCar() {
 
@@ -25,12 +26,7 @@ function RegisterCar() {
                 <UploadFiles/>
 
                 {/* LOCALIZACAO */}
-                <Row className='pt-5 my-3'>
-                    <h3 className='text-light'>Selecione a localização do seu veículo</h3>
-                </Row>
-                <Container>
-
-                </Container>
+                <SelectLocation/>
             </Container>
         </>
     )
