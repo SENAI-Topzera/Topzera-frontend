@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Card, Col, Image, Form, InputGroup } from 'react-bootstrap';
+import { Container, Row, Ratio } from 'react-bootstrap';
 
 
 function SelectLocation() {
@@ -14,7 +14,11 @@ function SelectLocation() {
                 <h3 className='text-light'>Selecione a localização e data para pegar o veículo</h3>
             </Row>
             <Container>
-
+                <Row>
+                    <Ratio aspectRatio="21x9">
+                        <iframe src="https://maps.google.com/maps?q=senai,%20blumenau&t=&z=13&ie=UTF8&iwloc=&output=embed" scrolling="no"></iframe>
+                    </Ratio>
+                </Row>
             </Container>
         </>
     )

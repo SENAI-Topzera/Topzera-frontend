@@ -129,7 +129,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Cor</Form.Label>
                                 <Form.Select aria-label="Cor" value={cor} onChange={e => setCor(e.target.value)}>
-                                    <option disabled >Selecione</option>
+                                    <option disabled selected>Selecione</option>
                                     <option value="1">AMARELO</option>
                                     <option value="2">AZUL</option>
                                     <option value="3">BEGE</option>
@@ -159,7 +159,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Combustível usado</Form.Label>
                                 <Form.Select aria-label="Combustível usado" value={combustivel} onChange={e => setCombustivel(e.target.value)}>
-                                    <option disabled >Selecione</option>
+                                    <option disabled selected>Selecione</option>
                                     <option value="1">GNV</option>
                                     <option value="2">Álcool</option>
                                     <option value="3">Diesel</option>
@@ -173,7 +173,7 @@ function CarMainData() {
                             <Form.Group className="mb-3" controlId="">
                                 <Form.Label>Câmbio</Form.Label>
                                 <Form.Select aria-label="Câmbio">
-                                    <option disabled >Selecione</option>
+                                    <option disabled selected>Selecione</option>
                                     <option value="1">Manual</option>
                                     <option value="2">Automatico</option>
                                 </Form.Select>
