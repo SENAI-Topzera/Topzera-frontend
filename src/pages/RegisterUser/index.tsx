@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import Navbar from 'components/Navbar'
 import SliderStatus from 'components/SliderStatusRegisterUser'
 import PersonalDataForm from './personalData';
@@ -7,6 +7,8 @@ import CNHForm from './CNH';
 import AddressForm from './addressData';
 import ConcludedRegister from './concluded';
 import './style.scss';
+import axios from 'axios';
+import { User } from 'types/user';
 
 function RegisterUser() {
 
@@ -15,6 +17,8 @@ function RegisterUser() {
     const [hideFormCNH, setHideFormCNH] = useState(true);
     const [hideFormAddressData, setHideFormAddressData] = useState(true);
     const [hideConcludedRegister, setHideConcludedRegister] = useState(true);
+
+    const [user, setUser] = useState<User[]>([]);
 
     const continueForm = (event: React.MouseEvent) => {
         if (currentForm < 4) {
@@ -27,6 +31,50 @@ function RegisterUser() {
             setCurrentForm(currentForm - 1);
         }
     };
+
+    const handleRegister = (event: React.SyntheticEvent) => {
+        event.preventDefault();
+
+        const name = document.getElementById("name")?.getAttribute('value');
+        const nationality = document.getElementById("nationality")?.getAttribute('value');
+        const cpf = document.getElementById("cpf")?.getAttribute('value');
+        const phone = document.getElementById("phone")?.getAttribute('value');
+        const email = document.getElementById("email")?.getAttribute('value');
+        const gender = document.querySelector("input[name='genderGroup']:checked")?.getAttribute('value');
+        const password = document.getElementById("password")?.getAttribute('value');
+        const userImage = "";
+        const carImage = "";
+        const cnhId = 1;
+        const addressId = 1;
+
+        const dataUser = {
+            name,
+            nationality,
+            gender,
+            phone,
+            email,
+            password,
+            userImage,
+            carImage,
+            cnhId,
+            addressId
+            
+        }
+
+        try {
+            console.log(dataUser);
+
+            axios.post(`http://localhost:8888/api/users`, dataUser)
+            .then(response => {
+                const data = response.data as User[];
+                setUser(data);
+                console.log(data);
+            });
+        } catch (error) {
+            alert("Erro ao cadastrar usuario " + console.error());
+        }
+
+    }
 
     useEffect(() => {
         setHideFormPersonalData(false)
@@ -62,42 +110,44 @@ function RegisterUser() {
     return (
         <>
             <Navbar />
-            <Row>
-                <Col md="12" >
+            <Form onSubmit={handleRegister} >
+                <Row>
+                    <Col md="12">
                         <PersonalDataForm isHidden={hideFormPersonalData} />
                         <CNHForm isHidden={hideFormCNH} />
                         <AddressForm isHidden={hideFormAddressData} />
                         <ConcludedRegister isHidden={hideConcludedRegister} />
-                </Col>
-            </Row>
-            <Row>
-                <Col md="12">
-                    <Container>
-                        <Row hidden={hideConcludedRegister}>
-                            <Col md="5">
-                            </Col>
-                            <Col md="2" className="d-grid">
-                                <Button id="voltarForm" variant="primary" type="button">Finalizar</Button>
-                            </Col>
-                            <Col md="5">
-                            </Col>
-                        </Row>
-                        <Row hidden={!hideConcludedRegister}>
-                            <Col xs={6} className="d-flex flex-row">
-                                <Button id="voltarForm" className="px-3 mx-4" variant="primary" type="button" onClick={backForm}>Voltar</Button>
-                            </Col>
-                            <Col xs={6} className="d-flex flex-row-reverse">
-                                <Button id="continuarForm" className="px-3 mx-4" variant="primary" type="button" onClick={continueForm}>Continuar</Button>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md="12">
-                                <SliderStatus statusID={currentForm} />
-                            </Col>
-                        </Row>
-                    </Container>
-                </Col>
-            </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md="12">
+                        <Container>
+                            <Row hidden={hideConcludedRegister}>
+                                <Col md="5">
+                                </Col>
+                                <Col md="2" className="d-grid">
+                                    <Button id="voltarForm" variant="primary" type="submit">Finalizar</Button>
+                                </Col>
+                                <Col md="5">
+                                </Col>
+                            </Row>
+                            <Row hidden={!hideConcludedRegister}>
+                                <Col xs={6} className="d-flex flex-row">
+                                    <Button id="voltarForm" className="px-3 mx-4" variant="primary" type="button" onClick={backForm}>Voltar</Button>
+                                </Col>
+                                <Col xs={6} className="d-flex flex-row-reverse">
+                                    <Button id="continuarForm" className="px-3 mx-4" variant="primary" type="button" onClick={continueForm}>Continuar</Button>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col md="12">
+                                    <SliderStatus statusID={currentForm} />
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Col>
+                </Row>
+            </Form>
         </>
     )
 } export default RegisterUser;

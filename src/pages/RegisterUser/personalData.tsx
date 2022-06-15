@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
 type Props = {
@@ -5,6 +6,16 @@ type Props = {
 }
 
 function RegisterPersonalData({ isHidden }: Props) {
+
+    const [name, setName] = useState('');
+    const [nationality, setNationality] = useState('');
+    const [cpf, setCPF] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [gender, setGender] = useState('');
+    const [password, setPassword] = useState('');
+
+
     return (
         <>
             <Container hidden={isHidden}>
@@ -15,75 +26,78 @@ function RegisterPersonalData({ isHidden }: Props) {
                     <Form className="text-light">
                         <Row>
                             <Col md="6">
-                                <Form.Group className="mb-3" controlId="">
+                                <Form.Group className="mb-3" controlId="name">
                                     <Form.Label>Nome Completo</Form.Label>
-                                    <Form.Control type="text" placeholder="" />
+                                    <Form.Control type="text" placeholder="" value={name} onChange={e => setName(e.target.value)} />
                                 </Form.Group>
                             </Col>
                             <Col md="3">
-                                <Form.Group className="mb-3" controlId="">
+                                <Form.Group className="mb-3" controlId="nationality">
                                     <Form.Label>Nacionalidade</Form.Label>
-                                    <Form.Control type="text" placeholder="" />
+                                    <Form.Control type="text" placeholder="" value={nationality} onChange={e => setNationality(e.target.value)} />
                                 </Form.Group>
                             </Col>
                             <Col md="3">
-                                <Form.Group className="mb-3" controlId="">
+                                <Form.Group className="mb-3" controlId="cpf">
                                     <Form.Label>CPF</Form.Label>
-                                    <Form.Control type="email" placeholder="000.000.000-00" />
+                                    <Form.Control type="text" placeholder="000.000.000-00" value={cpf} onChange={e => setCPF(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                         </Row>
                         <Row>
                             <Col md="3">
-                                <Form.Group className="mb-3" controlId="">
+                                <Form.Group className="mb-3" controlId="phone">
                                     <Form.Label>Telefone Celular</Form.Label>
-                                    <Form.Control type="text" placeholder="" />
+                                    <Form.Control type="text" placeholder="" value={phone} onChange={e => setPhone(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="4">
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Group className="mb-3" controlId="email">
                                     <Form.Label>E-mail</Form.Label>
-                                    <Form.Control type="email" placeholder="" />
+                                    <Form.Control type="email" placeholder="" value={email} onChange={e => setEmail(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="5">
-                                <Form.Group className="mb-3" >
+                                <Form.Group className="mb-3" controlId="gender">
                                     <Row>
                                         <Form.Label className='px-0'>Gênero</Form.Label>
                                     </Row>
                                     <Form.Check
                                         inline
                                         label="Feminino"
-                                        name="group1"
+                                        name="genderGroup"
                                         type="radio"
-                                        id={`inline-radio-1`}
+                                        id={`female`}
+                                        value="Feminino"
                                     />
                                     <Form.Check
                                         inline
                                         label="Masculino"
-                                        name="group1"
+                                        name="genderGroup"
                                         type="radio"
-                                        id={`inline-radio-2`}
+                                        id={`male`} 
+                                        value="Masculino"
                                     />
                                     <Form.Check
                                         inline
                                         label="Outro"
-                                        name="group1"
+                                        name="genderGroup"
                                         type="radio"
-                                        id={`inline-radio-3`}
+                                        id={`other`} 
+                                        value="Outro"
                                     />
                                 </Form.Group>
                             </Col>
                         </Row>
                         <Row>
                             <Col md="3">
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Group className="mb-3" controlId="password">
                                     <Form.Label>Senha</Form.Label>
-                                    <Form.Control type="password" placeholder="" />
+                                    <Form.Control type="password" placeholder="" value={password} onChange={e => setPassword(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="3">
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Group className="mb-3" controlId="confirmPassword">
                                     <Form.Label>Confirmar Senha</Form.Label>
                                     <Form.Control type="password" placeholder="Password" />
                                 </Form.Group>
