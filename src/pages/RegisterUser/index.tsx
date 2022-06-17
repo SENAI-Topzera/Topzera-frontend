@@ -17,8 +17,13 @@ function RegisterUser() {
     const [hideFormCNH, setHideFormCNH] = useState(true);
     const [hideFormAddressData, setHideFormAddressData] = useState(true);
     const [hideConcludedRegister, setHideConcludedRegister] = useState(true);
+    const [hideContinueButton, setHideContinueButton] = useState(true);
+    const [registered, setRegistered] = useState(false);
 
     const [user, setUser] = useState<User[]>([]);
+
+    const continueButton = document.getElementById("continuarForm");
+    const submitButton = document.getElementById("submitForm");
 
     const continueForm = (event: React.MouseEvent) => {
         if (currentForm < 4) {
@@ -69,25 +74,36 @@ function RegisterUser() {
                 const data = response.data as User[];
                 setUser(data);
                 console.log(data);
+                setRegistered(true);
             });
         } catch (error) {
+            setRegistered(false);
             alert("Erro ao cadastrar usuario " + console.error());
         }
 
     }
 
     useEffect(() => {
-        setHideFormPersonalData(false)
-        console.log('effect will run once');
+        setHideFormPersonalData(false);
+        //console.log('effect will run once');
     }, []);
 
     useEffect(() => {
-        console.log('effect will run if current Form has changed');
-
+        //console.log('effect will run if current Form has changed');
         setHideFormPersonalData(true);
         setHideFormCNH(true);
         setHideFormAddressData(true);
         setHideConcludedRegister(true);
+        setHideContinueButton(true);
+
+        if(currentForm >= 3) {    
+            continueButton?.parentElement?.classList.remove('col-6', 'd-flex', 'flex-row-reverse');
+            submitButton?.parentElement?.classList.add('col-6', 'd-flex', 'flex-row-reverse');
+        } else if (currentForm < 3) {
+            submitButton?.parentElement?.classList.remove('col-6', 'd-flex', 'flex-row-reverse');
+            continueButton?.parentElement?.classList.add('col-6', 'd-flex', 'flex-row-reverse');
+            
+        }
 
         switch (currentForm) {
             case 1:
@@ -98,9 +114,11 @@ function RegisterUser() {
                 break;
             case 3:
                 setHideFormAddressData(false);
+                setHideContinueButton(false)
                 break;
             case 4:
                 setHideConcludedRegister(false);
+                setHideContinueButton(false)
                 break;
             default:
                 break;
@@ -116,7 +134,7 @@ function RegisterUser() {
                         <PersonalDataForm isHidden={hideFormPersonalData} />
                         <CNHForm isHidden={hideFormCNH} />
                         <AddressForm isHidden={hideFormAddressData} />
-                        <ConcludedRegister isHidden={hideConcludedRegister} />
+                        <ConcludedRegister isHidden={hideConcludedRegister} isRegistered={registered}/>
                     </Col>
                 </Row>
                 <Row>
@@ -126,17 +144,20 @@ function RegisterUser() {
                                 <Col md="5">
                                 </Col>
                                 <Col md="2" className="d-grid">
-                                    <Button id="voltarForm" variant="primary" type="submit">Finalizar</Button>
+                                    <Button id="finalizarForm" variant="primary" type="button">Finalizar</Button>
                                 </Col>
                                 <Col md="5">
                                 </Col>
                             </Row>
-                            <Row hidden={!hideConcludedRegister}>
-                                <Col xs={6} className="d-flex flex-row">
-                                    <Button id="voltarForm" className="px-3 mx-4" variant="primary" type="button" onClick={backForm}>Voltar</Button>
+                            <Row >
+                                <Col  xs={6} className="d-flex flex-row">
+                                    <Button hidden={!hideConcludedRegister} id="voltarForm" className="px-3 mx-4" variant="primary" type="button" onClick={backForm}>Voltar</Button>
                                 </Col>
-                                <Col xs={6} className="d-flex flex-row-reverse">
+                                <Col hidden={!hideContinueButton} xs={6} className="d-flex flex-row-reverse">
                                     <Button id="continuarForm" className="px-3 mx-4" variant="primary" type="button" onClick={continueForm}>Continuar</Button>
+                                </Col>
+                                <Col  xs={6} className="d-flex flex-row-reverse">
+                                    <Button  hidden={hideFormAddressData} id="submitForm" className="px-3 mx-4" variant="primary" type="submit" onClick={continueForm}>Cadastrar</Button>
                                 </Col>
                             </Row>
                             <Row>
