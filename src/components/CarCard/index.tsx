@@ -1,5 +1,6 @@
 import { Car } from '../../types/car';
 import { Carousel, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import './styles.css';
 
 type Props = {
@@ -27,7 +28,7 @@ function CarCard({ car }: Props) {
                 {carouselItem}
             </Carousel>
             <Card.Body>
-                <Card.Title style={{ width: '100%' }} className="d-inline-block text-truncate">{car.marca} {car.modelo}</Card.Title>
+                <Card.Title style={{ width: '100%' }} className="d-inline-block text-truncate"><Link to={`/car-detail/${car.id_carro}`}>{car.marca} {car.modelo}</Link></Card.Title>
                 <Card.Text className="text-uppercase">
                 {car.cor} {car.tp_comb} {car.qtd_portas}P {car.tp_cambio}
                 </Card.Text>
