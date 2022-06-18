@@ -10,7 +10,6 @@ type Props = {
 function ConcludedRegister({ isHidden, isRegistered }: Props) {
 
     const [returnMessage, setReturnMessage] = useState('');
-    const successIconComponent = componentWillAppendToBody(SuccessIcon);
 
 
 useEffect(() => {
