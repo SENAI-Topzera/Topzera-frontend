@@ -9,6 +9,7 @@ import ConcludedRegister from './concluded';
 import './style.scss';
 import axios from 'axios';
 import { User } from 'types/user';
+import { BASE_URL } from 'utils/requests';
 
 function RegisterUser() {
 
@@ -69,7 +70,7 @@ function RegisterUser() {
         try {
             console.log(dataUser);
 
-            axios.post(`http://localhost:8888/api/users`, dataUser)
+            axios.post(`${BASE_URL}/api/users`, dataUser)
             .then(response => {
                 const data = response.data as User[];
                 setUser(data);
