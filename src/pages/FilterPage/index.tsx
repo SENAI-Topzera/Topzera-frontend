@@ -12,9 +12,10 @@ function Home() {
     const [cars, setCars] = useState<Car[]>([]);
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/cars`)
+        axios.get(`${BASE_URL}/api/cars`)
             .then(response => {
                 const data = response.data as Car[];
+                console.log(data)
                 setCars(data);
             });
     }, []);
@@ -30,7 +31,7 @@ function Home() {
                     <Container className='my-4'>
                         <Row xs={1} md={3} className="g-1">
                             {cars.map(car => (
-                                <Col key={car.id}>
+                                <Col key={car.id_carro}>
                                     <CarCard car={car} />
                                 </Col>
                             ))}
