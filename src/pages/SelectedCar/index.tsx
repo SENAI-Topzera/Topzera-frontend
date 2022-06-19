@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Car } from '../../types/car';
 import { BASE_URL } from '../../utils/requests';
 
@@ -8,12 +9,14 @@ type Props = {
     id: number;
 }
 
-function SelectedCar({ id }: Props) {
+function SelectedCar() {
+
+    let params = useParams();
 
     const [car, setCar] = useState<Car>();
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/api/cars/${id}`)
+        axios.get(`${BASE_URL}/api/cars/${params.id}`)
             .then(response => {
                 const data = response.data as Car;
                 console.log(data)
@@ -22,9 +25,9 @@ function SelectedCar({ id }: Props) {
     }, []);
 
     return (
-        <p>
-            {car?.modelo}
-        </p>
+        <>
+        <h2 className='text-center text-light'>{car?.descricao}</h2>
+        </>
     )
 
 }

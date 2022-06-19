@@ -20,7 +20,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
-        <Route path="/filter-page" element={<FilterPage />} />
+        <Route path="/filter-page" element={<FilterPage />}/>
+        <Route path="/car-detail/:id" element={<SelectedCar />}/>
         <Route path="/new-pass" element={<NewPass />} />
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/my-account" element={<MyAccount />} />
@@ -29,7 +30,6 @@ function App() {
         <Route path="/accept-decline" element={<AcceptDecline />} />
         <Route path="/rating-rental" element={<RatingRental />} />
         <Route path="/rating-rental-car" element={<RatingRentalCar />} />
-        {/* <Route path="/car-detail/:id" element={<SelectedCar id={0}/>} /> */}
       </Routes>
     </BrowserRouter>
   )
