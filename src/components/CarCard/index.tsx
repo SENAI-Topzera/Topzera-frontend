@@ -13,7 +13,7 @@ function CarCard({ car }: Props) {
 
     // for (let i = 0; i < car.imgs.length; i++) {
     //     var carImg = car.imgs[i];
-    carouselItem.push(<Carousel.Item>
+    carouselItem.push(<Carousel.Item className="carousel-item-carcard">
         <img
             className="d-block w-100"
             src="https://picsum.photos/200/300"// src={carImg}
