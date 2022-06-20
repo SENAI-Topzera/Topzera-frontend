@@ -12,6 +12,7 @@ import AcceptDecline from 'pages/AcceptDecline/index';
 import RatingRental from 'pages/RatingRental';
 import RatingRentalCar from 'pages/RatingRentalCar';
 import SelectedCar from 'pages/SelectedCar';
+import HomePage from 'pages/HomePage';
 //import './App.scss';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/accept-decline" element={<AcceptDecline />} />
         <Route path="/rating-rental" element={<RatingRental />} />
         <Route path="/rating-rental-car" element={<RatingRentalCar />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   )
