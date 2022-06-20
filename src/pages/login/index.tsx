@@ -22,7 +22,7 @@ function login() {
                                             <Form.Control type="password" placeholder="Senha" />
                                         </Form.Group>
                                         <Form.Group className="mb-3 text-light">
-                                            <a href="/forgetPassword" className='text-light text-sm'>Esqueci minha senha</a>
+                                            <a href="/forget-Password" className='text-light text-sm'>Esqueci minha senha</a>
                                         </Form.Group>
 
                                         <Form.Group className="mb-3">
