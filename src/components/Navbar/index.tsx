@@ -8,13 +8,13 @@ function TopNavbar() {
     return (
         <Navbar id='navbar-size' bg="primary">
             <Container fluid className="mx-3">
-                <Navbar.Brand href="#home" className="text-dark">
+                <Navbar.Brand href="/home" className="text-dark">
                     <img src={TZIcon} alt="Topzera" title="Topzera" />
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link className="text-dark fw-bold" href="#home">
+                        <Nav.Link className="text-dark fw-bold" href="/home">
                             <HouseIcon />
                         </Nav.Link>
                         <Nav.Link className="text-dark fw-bold" href="/my-account">

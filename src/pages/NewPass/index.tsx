@@ -29,7 +29,7 @@ function newPass() {
                                 </Button>
                             </Col>
                             <Col>
-                                <Button variant="primary" type="submit" className='w-100'>
+                                <Button variant="primary" type="submit" className='w-100' href='/login'>
                                     Finalizar
                                 </Button>
                             </Col>
