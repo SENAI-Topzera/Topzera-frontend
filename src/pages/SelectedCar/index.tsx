@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Carousel, Row, Col, Button, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Car } from '../../types/car';
@@ -8,7 +8,6 @@ import LocationData from "./locationData";
 import Navbar from 'components/Navbar'
 
 type Props = {
-    //car: Car,
     id: number;
 }
 
