@@ -45,19 +45,19 @@ function HomePage() {
                     <Col md="1"></Col>
                     <Col className="flex-column vh-100 mt-2" md="10">
                         <Carousel>
-                            <Carousel.Item className='testeimg'>
+                            <Carousel.Item className='carousel-item-home testeimg'>
                                 <img
                                     className="d-block w-100"
                                     src="https://images2.alphacoders.com/685/685648.jpg"
                                 />
                             </Carousel.Item>
-                            <Carousel.Item>
+                            <Carousel.Item className="carousel-item-home">
                                 <img
                                     className="d-block w-100"
                                     src="https://cdn.motor1.com/images/mgl/P3GWZr/s1/2022-honda-civic-si.jpg"
                                 />
                             </Carousel.Item>
-                            <Carousel.Item>
+                            <Carousel.Item className='carousel-item-home'>
                                 <img
                                     className="d-block w-100"
                                     src="https://i.gaw.to/content/photos/41/07/410736_Une_Toyota_GR_Corolla_de_250_chevaux_pourrait_venir_ici.jpg"

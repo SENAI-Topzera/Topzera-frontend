@@ -7,11 +7,11 @@
     background-image: linear-gradient(rgba(92, 92, 92, 0.5), rgba(92, 92, 92, 0.5)), url('https://fotos.jornaldocarro.estadao.com.br/uploads/2018/05/05112108/bmw-m2-competition-with-m-performance-parts.jpg');
 } 
 
-.carousel-item{
+.carousel-item-home{
     height: 400px;
 }
 
-.carousel-item img{
+.carousel-item-home img{
     object-fit: cover;
     object-position: center;
     height: 400px;
