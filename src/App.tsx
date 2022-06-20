@@ -11,6 +11,7 @@ import MyCars from "pages/MyCars/index";
 import AcceptDecline from 'pages/AcceptDecline/index';
 import RatingRental from 'pages/RatingRental';
 import RatingRentalCar from 'pages/RatingRentalCar';
+import SelectedCar from 'pages/SelectedCar';
 import HomePage from 'pages/HomePage';
 //import './App.scss';
 
@@ -19,12 +20,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/forget-password" element={<ForgetPassword/>}/>
-        <Route path="/filter-page" element={<FilterPage/>}/>
-        <Route path="/new-pass" element={<NewPass/>}/>
-        <Route path="/register-user" element={<RegisterUser/>}/>
-        <Route path="/my-account" element={<MyAccount/>}/>
-        <Route path="/register-car" element={<RegisterCar/>}/>
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/filter-page" element={<FilterPage />}/>
+        <Route path="/car-detail/:id" element={<SelectedCar />}/>
+        <Route path="/new-pass" element={<NewPass />} />
+        <Route path="/register-user" element={<RegisterUser />} />
+        <Route path="/my-account" element={<MyAccount />} />
+        <Route path="/register-car" element={<RegisterCar />} />
         <Route path="/my-cars" element={<MyCars />} />
         <Route path="/accept-decline" element={<AcceptDecline />} />
         <Route path="/rating-rental" element={<RatingRental />} />

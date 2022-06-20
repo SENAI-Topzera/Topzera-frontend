@@ -1,5 +1,6 @@
 import { Car } from '../../types/car';
-import { Carousel, Card } from "react-bootstrap";
+import { Carousel, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import './styles.css';
 
 type Props = {
@@ -12,13 +13,13 @@ function CarCard({ car }: Props) {
 
     // for (let i = 0; i < car.imgs.length; i++) {
     //     var carImg = car.imgs[i];
-        carouselItem.push(<Carousel.Item>
-            <img
-                className="d-block w-100"
-                src="https://picsum.photos/200/300"// src={carImg}
-                alt="slide"
-            />
-        </Carousel.Item>)
+    carouselItem.push(<Carousel.Item className="carousel-item-carcard">
+        <img
+            className="d-block w-100"
+            src="https://picsum.photos/200/300"// src={carImg}
+            alt="slide"
+        />
+    </Carousel.Item>)
     // }
 
     return (
@@ -27,10 +28,16 @@ function CarCard({ car }: Props) {
                 {carouselItem}
             </Carousel>
             <Card.Body>
-                <Card.Title style={{ width: '100%' }} className="d-inline-block text-truncate">{car.marca} {car.modelo}</Card.Title>
-                <Card.Text className="text-uppercase">
-                {car.cor} {car.tp_comb} {car.qtd_portas}P {car.tp_cambio}
-                </Card.Text>
+                <Card.Title style={{ width: '100%' }} className="d-inline-block text-truncate">
+                    <Link to={`/car-detail/${car.id_carro}`}>
+                        <Card.Link className="link-dark text-decoration-none">{car.marca} {car.modelo}</Card.Link>
+                    </Link>
+                </Card.Title>
+                <OverlayTrigger placement="bottom" overlay={<Tooltip id="car-description">{car.descricao}</Tooltip>}>
+                    <Card.Text className="text-uppercase text-truncate">
+                        {car.descricao}
+                    </Card.Text>
+                </OverlayTrigger>
             </Card.Body>
         </Card>
     )

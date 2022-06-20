@@ -40,13 +40,28 @@ span {
     white-space: nowrap;
 } */
 
-.carousel-item{
+.carousel-item-carcard{
     height: 180px;
 }
 
-.carousel-item img{
+.carousel-item-carcard img{
     object-fit: cover;
     object-position: center;
     height: 180px;
+    overflow: hidden;
+}
+
+.carousel-item-carselected{
+    height: 75vh;
+    min-height: 150px;
+    max-height: 450px;
+}
+
+.carousel-item-carselected img{
+    object-fit: cover;
+    object-position: center;
+    height: 75vh;
+    min-height: 150px;  
+    max-height: 450px;
     overflow: hidden;
 }
