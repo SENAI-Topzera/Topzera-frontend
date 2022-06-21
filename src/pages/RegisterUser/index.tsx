@@ -10,6 +10,7 @@ import './style.scss';
 import axios from 'axios';
 import { User } from 'types/user';
 import { BASE_URL } from 'utils/requests';
+import { CNH } from 'types/cnh';
 
 function RegisterUser() {
 
@@ -21,7 +22,9 @@ function RegisterUser() {
     const [hideContinueButton, setHideContinueButton] = useState(true);
     const [registered, setRegistered] = useState(false);
 
-    const [user, setUser] = useState<User[]>([]);
+    const [user, setUser] = useState<User>();
+    const [idUser, setIDUser] = useState<number>();
+    const [cnh, setCNH] = useState<CNH>();
 
     const continueButton = document.getElementById("continuarForm");
     const submitButton = document.getElementById("submitForm");
@@ -55,6 +58,14 @@ function RegisterUser() {
         const city = document.getElementById("cidade")?.getAttribute('value');
         const state = document.getElementById("estado_usuario")?.getAttribute('value');
 
+        const rg = document.getElementById("rg")?.getAttribute('value');
+        const bornDate = document.getElementById("data_nasc")?.getAttribute('value');
+        const registerNumber = document.getElementById("num_registro")?.getAttribute('value');
+        const cnh = document.getElementById("num_cnh")?.getAttribute('value');
+        const dueDate = document.getElementById("data_validade")?.getAttribute('value');
+        const statecnh = document.getElementById("estado_cnh")?.getAttribute('value');
+        const userId = idUser;
+
         const dataUser = {
             name,
             nationality,
@@ -68,19 +79,45 @@ function RegisterUser() {
             number,
             district,
             city,
-            state            
+            state
+        }
+
+        const dataCNH = {
+            bornDate,
+            rg,
+            registerNumber,
+            cnh,
+            dueDate,
+            state: statecnh,
+            userId
         }
 
         try {
-            console.log(dataUser);
 
             axios.post(`${BASE_URL}/api/users`, dataUser)
-            .then(response => {
-                const data = response.data as User[];
-                setUser(data);
-                console.log(data);
-                setRegistered(true);
-            });
+                .then(response => {
+                    const data = response.data as User;
+                    setUser(data);
+                    console.log(data);
+                    setRegistered(true);
+                });
+
+            try {
+                dataCNH.userId = user?.id;
+
+                console.log(dataCNH);
+                axios.post(`${BASE_URL}/api/cnh`, dataCNH)
+                    .then(response => {
+                        const data = response.data as CNH;
+                        setCNH(data);
+                        console.log(data);
+                        setRegistered(true);
+                    });
+            } catch (error) {
+                setRegistered(false);
+                alert("Erro ao cadastrar CNH " + console.error());
+            }
+
         } catch (error) {
             setRegistered(false);
             alert("Erro ao cadastrar usuario " + console.error());
@@ -89,21 +126,9 @@ function RegisterUser() {
     }
 
     useEffect(() => {
-        try {
-            
-            axios.post(`${BASE_URL}/api/cnh`, "")
-            .then(response => {
-                const data = response.data as User[];
-                setUser(data);
-                console.log(data);
-                setRegistered(true);
-            });
-        } catch (error) {
-            setRegistered(false);
-            alert("Erro ao cadastrar usuario " + console.error());
-        }
 
-    }, [user])
+
+    }, [])
 
     useEffect(() => {
         setHideFormPersonalData(false);
@@ -118,13 +143,13 @@ function RegisterUser() {
         setHideConcludedRegister(true);
         setHideContinueButton(true);
 
-        if(currentForm >= 3) {    
+        if (currentForm >= 3) {
             continueButton?.parentElement?.classList.remove('col-6', 'd-flex', 'flex-row-reverse');
             submitButton?.parentElement?.classList.add('col-6', 'd-flex', 'flex-row-reverse');
         } else if (currentForm < 3) {
             submitButton?.parentElement?.classList.remove('col-6', 'd-flex', 'flex-row-reverse');
             continueButton?.parentElement?.classList.add('col-6', 'd-flex', 'flex-row-reverse');
-            
+
         }
 
         switch (currentForm) {
@@ -156,7 +181,7 @@ function RegisterUser() {
                         <PersonalDataForm isHidden={hideFormPersonalData} />
                         <CNHForm isHidden={hideFormCNH} />
                         <AddressForm isHidden={hideFormAddressData} />
-                        <ConcludedRegister isHidden={hideConcludedRegister} isRegistered={registered}/>
+                        <ConcludedRegister isHidden={hideConcludedRegister} isRegistered={registered} />
                     </Col>
                 </Row>
                 <Row>
@@ -172,14 +197,14 @@ function RegisterUser() {
                                 </Col>
                             </Row>
                             <Row >
-                                <Col  xs={6} className="d-flex flex-row">
+                                <Col xs={6} className="d-flex flex-row">
                                     <Button hidden={!hideConcludedRegister} id="voltarForm" className="px-3 mx-4" variant="primary" type="button" onClick={backForm}>Voltar</Button>
                                 </Col>
                                 <Col hidden={!hideContinueButton} xs={6} className="d-flex flex-row-reverse">
                                     <Button id="continuarForm" className="px-3 mx-4" variant="primary" type="button" onClick={continueForm}>Continuar</Button>
                                 </Col>
-                                <Col  xs={6} className="d-flex flex-row-reverse">
-                                    <Button  hidden={hideFormAddressData} id="submitForm" className="px-3 mx-4" variant="primary" type="submit" onClick={continueForm}>Cadastrar</Button>
+                                <Col xs={6} className="d-flex flex-row-reverse">
+                                    <Button hidden={hideFormAddressData} id="submitForm" className="px-3 mx-4" variant="primary" type="submit" onClick={continueForm}>Cadastrar</Button>
                                 </Col>
                             </Row>
                             <Row>
