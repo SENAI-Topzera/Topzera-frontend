@@ -1,12 +1,17 @@
 export type User = {
     id: number;
-    name: string;
+    name: string;       
     nationality: string;
-    phone: number;
-    email: string;
-    password: string;
-    userImage: string;
-    carImage: string;
-    cnhId: number;
-    addressId: number;
+    gender: string;     
+    phone: string;      
+    email: string;      
+    password: string;   
+    userImage: string;  
+    cpf: string;        
+    postalCode: string; 
+    place: string;      
+    number: string;     
+    district: string;   
+    city: string;       
+    state: string;          
 }

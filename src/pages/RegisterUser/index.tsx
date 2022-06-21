@@ -43,15 +43,17 @@ function RegisterUser() {
 
         const name = document.getElementById("name")?.getAttribute('value');
         const nationality = document.getElementById("nationality")?.getAttribute('value');
-        const cpf = document.getElementById("cpf")?.getAttribute('value');
         const phone = document.getElementById("phone")?.getAttribute('value');
         const email = document.getElementById("email")?.getAttribute('value');
         const gender = document.querySelector("input[name='genderGroup']:checked")?.getAttribute('value');
         const password = document.getElementById("password")?.getAttribute('value');
-        const userImage = "";
-        const carImage = "";
-        const cnhId = 1;
-        const addressId = 1;
+        const cpf = document.getElementById("cpf")?.getAttribute('value');
+        const postalCode = document.getElementById("cep")?.getAttribute('value');
+        const place = document.getElementById("logradouro")?.getAttribute('value');
+        const number = document.getElementById("numero")?.getAttribute('value');
+        const district = document.getElementById("bairro")?.getAttribute('value');
+        const city = document.getElementById("cidade")?.getAttribute('value');
+        const state = document.getElementById("estado_usuario")?.getAttribute('value');
 
         const dataUser = {
             name,
@@ -60,11 +62,13 @@ function RegisterUser() {
             phone,
             email,
             password,
-            userImage,
-            carImage,
-            cnhId,
-            addressId
-            
+            cpf,
+            postalCode,
+            place,
+            number,
+            district,
+            city,
+            state            
         }
 
         try {
@@ -83,6 +87,23 @@ function RegisterUser() {
         }
 
     }
+
+    useEffect(() => {
+        try {
+            
+            axios.post(`${BASE_URL}/api/cnh`, "")
+            .then(response => {
+                const data = response.data as User[];
+                setUser(data);
+                console.log(data);
+                setRegistered(true);
+            });
+        } catch (error) {
+            setRegistered(false);
+            alert("Erro ao cadastrar usuario " + console.error());
+        }
+
+    }, [user])
 
     useEffect(() => {
         setHideFormPersonalData(false);
