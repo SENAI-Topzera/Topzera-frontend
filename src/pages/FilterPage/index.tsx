@@ -31,7 +31,7 @@ function Home() {
                     <Container className='my-4'>
                         <Row xs={1} md={3} className="g-1">
                             {cars.map(car => (
-                                <Col key={car.id_carro}>
+                                <Col key={car.id}>
                                     <CarCard car={car} />
                                 </Col>
                             ))}
