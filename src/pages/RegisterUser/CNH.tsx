@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container, Row, Col, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { ReactComponent as InfoIcon } from './../../assets/icons/info-circle.svg';
 
@@ -6,6 +7,14 @@ type Props = {
 }
 
 function RegisterCNH({ isHidden }: Props) {
+
+    const [rg, setRG] = useState('');
+    const [data_nasc, setDataNasc] = useState('');
+    const [num_registro, setNumRegistro] = useState('');
+    const [num_cnh, setNumCNH] = useState('');
+    const [data_validade, setDatavalidade] = useState('');
+    const [estado, setEstadoCNH] = useState('');
+
     return (
         <>
             <Container hidden={isHidden}>
@@ -18,21 +27,21 @@ function RegisterCNH({ isHidden }: Props) {
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="rg">
                                     <Form.Label>RG</Form.Label>
-                                    <Form.Control type="text" placeholder="" />
+                                    <Form.Control type="text" placeholder="" value={rg} onChange={e => setRG(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="data_nasc">
                                     <Form.Label>Data de Nascimento</Form.Label>
-                                    <Form.Control type="date" placeholder="" />
+                                    <Form.Control type="date" placeholder="" value={data_nasc} onChange={e => setDataNasc(e.target.value)}/>
                                 </Form.Group>
                             </Col>
-                            <Col md="6">
+                            {/* <Col md="6">
                                 <Form.Group className="mb-3" controlId="api_ocr">
                                     <Form.Label>Preenchimento automático</Form.Label>
                                     <Form.Control type="" placeholder="TROCAR INPUT POR UM BOTÃO QUE PEGA FOTO" />
                                 </Form.Group>
-                            </Col>
+                            </Col> */}
                         </Row>
                         <Row>
                             <Col md="3">
@@ -42,7 +51,7 @@ function RegisterCNH({ isHidden }: Props) {
                                             <span className="px-1">< InfoIcon /></span>
                                         </OverlayTrigger>
                                     </Form.Label>
-                                    <Form.Control type="text" placeholder="" />
+                                    <Form.Control type="text" placeholder="" value={num_registro} onChange={e => setNumRegistro(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="3">
@@ -52,19 +61,19 @@ function RegisterCNH({ isHidden }: Props) {
                                             <span className="px-1">< InfoIcon /></span>
                                         </OverlayTrigger>
                                     </Form.Label>
-                                    <Form.Control type="text" placeholder="" />
+                                    <Form.Control type="text" placeholder="" value={num_cnh} onChange={e => setNumCNH(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="data_validade">
                                     <Form.Label>Data de Validade</Form.Label>
-                                    <Form.Control type="date" placeholder="" />
+                                    <Form.Control type="date" placeholder="" value={data_validade} onChange={e => setDatavalidade(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="estado_cnh">
                                     <Form.Label>Estado</Form.Label>
-                                    <Form.Control type="text" placeholder="FAZER UM SELECT OPTIONS" />
+                                    <Form.Control type="text" placeholder="FAZER UM SELECT OPTIONS" value={estado} onChange={e => setEstadoCNH(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                         </Row>
