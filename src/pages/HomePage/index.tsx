@@ -31,7 +31,7 @@ function HomePage() {
                                         </Form.Group>
                                     </Col>
                                     <Col md="4" className='d-flex align-items-end justify-content-end flex-column'>
-                                        <Button variant="secondary" href='/my-cars' className='w-100'>
+                                        <Button variant="secondary" href='/filter-page' className='w-100'>
                                             Buscar
                                         </Button>
                                     </Col>
