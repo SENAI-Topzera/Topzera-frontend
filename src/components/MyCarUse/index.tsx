@@ -27,17 +27,17 @@ function MyCarUse() {
                             </Row>
                         </Col>
                         <Col md="3" className="px-1">
-                            <Button variant="primary" className='w-100 ' href='/'>
+                            <Button variant="primary" className='w-100 ' href='/accept-decline'>
                                 Validar pendência
                             </Button>
                         </Col>
                         <Col md="2" className="px-1">
-                            <Button variant="primary" className='w-100 px-0' href='/'>
+                            <Button variant="primary" className='w-100 px-0' href='/register-car'>
                                 Editar
                             </Button>
                         </Col>
                         <Col md="2" className="px-1">
-                            <Button variant="primary" className='w-100' href='/'>
+                            <Button variant="primary" className='w-100'>
                                 Excluir
                             </Button>
                         </Col>
