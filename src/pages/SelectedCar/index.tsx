@@ -42,7 +42,7 @@ function SelectedCar() {
             <Navbar />
             <Container>
                 <Row className="mt-5">
-                    <h2 className='text-light'>{car?.descricao}</h2>
+                    <h2 className='text-light'>{car?.description}</h2>
                     <Col md={8}>
                         <Card className="">
                             {/* h-75 w-100 d-inline-block */}
@@ -74,25 +74,25 @@ function SelectedCar() {
                     <Col xs={3}>
                         <h6 className='text-light'>Ano</h6>
                         <Card.Text className='text-light'>
-                            {car?.ano_modelo}
+                            {car?.modelYear}
                         </Card.Text>
                     </Col>
                     <Col xs={3}>
                         <h6 className='text-light'>Placa</h6>
                         <Card.Text className='text-light'>
-                        {car?.placa}
+                        {car?.board}
                         </Card.Text>
                     </Col>
                     <Col xs={3}>
                         <h6 className='text-light'>Combustivel</h6>
                         <Card.Text className='text-light'>
-                        {car?.tp_comb}
+                        {car?.typeFuel}
                         </Card.Text>
                     </Col>
                     <Col xs={3}>
                         <h6 className='text-light'>Câmbio</h6>
                         <Card.Text className='text-light'>
-                        {car?.tp_cambio}
+                        {car?.typeGear}
                         </Card.Text>
                     </Col>
                 </Row>

@@ -29,13 +29,13 @@ function CarCard({ car }: Props) {
             </Carousel>
             <Card.Body>
                 <Card.Title style={{ width: '100%' }} className="d-inline-block text-truncate">
-                    <Link to={`/car-detail/${car.id_carro}`}>
-                        <Card.Link className="link-dark text-decoration-none">{car.marca} {car.modelo}</Card.Link>
+                    <Link to={`/car-detail/${car.id}`}>
+                        <Card.Link className="link-dark text-decoration-none">{car.brand} {car.model}</Card.Link>
                     </Link>
                 </Card.Title>
-                <OverlayTrigger placement="bottom" overlay={<Tooltip id="car-description">{car.descricao}</Tooltip>}>
+                <OverlayTrigger placement="bottom" overlay={<Tooltip id="car-description">{car.description}</Tooltip>}>
                     <Card.Text className="text-uppercase text-truncate">
-                        {car.descricao}
+                        {car.description}
                     </Card.Text>
                 </OverlayTrigger>
             </Card.Body>
