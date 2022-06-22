@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
-import { Container, Row, Col, Card, Button, Nav } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Nav, CardImg } from "react-bootstrap";
+import { ReactComponent as Person } from './../../assets/icons/person.svg';
 
 class leftAccountBar extends React.Component {
     render() {
@@ -10,16 +11,18 @@ class leftAccountBar extends React.Component {
                 <Row>
                     <Col md="1"></Col>
                     <Col md="10">
-                        <Container>
-                            <Card className='cardimg mt-2'>
-                                <Card.Img className='cardimg' variant="top" src="" />
-                            </Card>
-                            <Row>
-                                <Col>
-                                    <h6 className='text-center'>Godofredo da Silva</h6>
-                                </Col>
-                            </Row>
-                        </Container>
+                        <Row>
+                            <Col md="12">
+                                <Container>
+                                    <Person className='person' />
+                                </Container>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <h6 className='text-center'>Godofredo da Silva</h6>
+                            </Col>
+                        </Row>
                     </Col>
                     <Col md="1"></Col>
                 </Row>

@@ -13,6 +13,9 @@ import RatingRental from 'pages/RatingRental';
 import RatingRentalCar from 'pages/RatingRentalCar';
 import SelectedCar from 'pages/SelectedCar';
 import HomePage from 'pages/HomePage';
+import EditCnh from 'pages/EditCnh';
+import EditUser from 'pages/EditUser';
+import EditAddress from 'pages/EditAddress';
 //import './App.scss';
 
 function App() {
@@ -32,6 +35,10 @@ function App() {
         <Route path="/rating-rental" element={<RatingRental />} />
         <Route path="/rating-rental-car" element={<RatingRentalCar />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/edit-cnh" element={<EditCnh />} />
+        <Route path="/edit-user" element={<EditUser />} />
+        <Route path="/edit-address" element={<EditAddress />} />
       </Routes>
     </BrowserRouter>
   )

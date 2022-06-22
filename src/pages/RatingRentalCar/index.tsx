@@ -40,25 +40,33 @@ export default function RatingRentalCar() {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col md="4"></Col>
-                                <Col md="4">
+                                <Col md="2"></Col>
+                                <Col md="8">
                                     <Card.Title className='text-center'>
                                         Dê a sua nota
                                     </Card.Title>
-                                    <Rating className='w-100'
-                                        onClick={handleRating}
-                                        ratingValue={rating}
-                                        allowHalfIcon
-                                        size={60}
-                                        transition
-                                    />
                                 </Col>
-                                <Col md="4"></Col>
+                                <Col md="2"></Col>
+                            </Row>
+                            <Row>
+                                <Col md="3"></Col>
+                                <Col md="6">
+                                    <Container className='w-100 d-flex justify-content-center'>
+                                        <Rating className='w-100'
+                                            onClick={handleRating}
+                                            ratingValue={rating}
+                                            allowHalfIcon
+                                            size={60}
+                                            transition
+                                        />
+                                    </Container>
+                                </Col>
+                                <Col md="3"></Col>
                             </Row>
                             <Row>
                                 <Col md="9"></Col>
                                 <Col md="3" className='d-flex flex-row-reverse mt-2'>
-                                    <Button variant="secondary" href='/my-cars' className='w-100'>
+                                    <Button variant="secondary" href='/home' className='w-100'>
                                         Confirmar devolução
                                     </Button>
                                 </Col>

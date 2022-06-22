@@ -23,13 +23,15 @@ export default function AcceptDeclineUser() {
                         <Row>
                             <Col md="2" className="cardText">
                                 <Card.Title className='text-truncate fs-5'>Jefferson Maylon Zickuhr</Card.Title>
-                                <Rating className='w-100'
-                                    onClick={handleRating}
-                                    ratingValue={80} //editável em porcentagem 
-                                    allowHalfIcon
-                                    size={30}
-                                    readonly
-                                />
+                                <Row>
+                                    <Rating
+                                        onClick={handleRating}
+                                        ratingValue={80} //editável em porcentagem 
+                                        allowHalfIcon
+                                        size={20}
+                                        readonly
+                                    />
+                                </Row>
                             </Col>
                             <Col>
                                 <Card.Text>

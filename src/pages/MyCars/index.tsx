@@ -18,7 +18,7 @@ function MyCars() {
                         <Row >
                             <Row>
                                 <Col md="12" className="d-flex flex-row-reverse">
-                                    <Button variant="primary" className="mb-2 mt-2">
+                                    <Button variant="primary" className="mb-2 mt-2" href='/register-car'>
                                         Cadastrar veículo
                                     </Button>
                                 </Col>

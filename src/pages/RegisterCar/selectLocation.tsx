@@ -75,7 +75,7 @@ function SelectLocation() {
                     <Col xs={9}>
                     </Col>
                     <Col xs={3} className="d-flex flex-row-reverse px-0">
-                        <Button id="continuarForm" className="w-100 mb-5" variant="primary" type="button">Cadastrar</Button>
+                        <Button id="continuarForm" className="w-100 mb-5" variant="primary" type="button" href='/my-cars'>Cadastrar</Button>
                     </Col>
                 </Row>
             </Container>

@@ -20,7 +20,7 @@ function myAccount() {
                                     </Button>
                                 </Col>
                                 <Col md="2">
-                                    <Button variant="primary" className='w-100 mb-2'>
+                                    <Button variant="primary" className='w-100 mb-2' href='/edit-user'>
                                         Editar
                                     </Button>
                                 </Col>
@@ -62,7 +62,7 @@ function myAccount() {
                                     </Button>
                                 </Col>
                                 <Col md="2">
-                                    <Button variant="primary" className='w-100 mb-2'>
+                                    <Button variant="primary" className='w-100 mb-2' href='/edit-cnh'>
                                         Editar
                                     </Button>
                                 </Col>
@@ -88,11 +88,11 @@ function myAccount() {
                             <Row>
                                 <Col md="3" >
                                     <Button variant="primary" className='w-100 mb-2'>
-                                        Informações do endereço
+                                        Info. do endereço
                                     </Button>
                                 </Col>
                                 <Col md="2">
-                                    <Button variant="primary" className='w-100 mb-2'>
+                                    <Button variant="primary" className='w-100 mb-2' href='/edit-address'>
                                         Editar
                                     </Button>
                                 </Col>
