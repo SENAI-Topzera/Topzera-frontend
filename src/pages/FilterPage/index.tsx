@@ -23,7 +23,7 @@ function Home() {
     return (
         <>
             <Navbar />
-            <Row className='mx-0'>
+            <Row className='mx-0 vh-100-navbar'>
                 <Col md="3" className='px-0'>
                     <FilterBar />
                 </Col>
