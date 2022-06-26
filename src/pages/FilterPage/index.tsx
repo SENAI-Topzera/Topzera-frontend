@@ -6,10 +6,12 @@ import CarCard from 'components/CarCard';
 import FilterBar from 'components/Filterbar';
 import Navbar from 'components/Navbar'
 import { Container, Row, Col } from "react-bootstrap";
+import { Rental } from 'types/rental';
 
 function Home() {
 
     const [cars, setCars] = useState<Car[]>([]);
+    const [rental, setRental] = useState<Rental>();
 
     useEffect(() => {
         axios.get(`${BASE_URL}/api/cars`)
@@ -20,14 +22,18 @@ function Home() {
             });
     }, []);
 
+
+
     const RenderCars = (car: Car) => {
-             if (car.statusAvailability == true) {
-                return (
-                    <Col key={car.id}>
-                         <CarCard car={car} />
-                    </Col>
-                )
-             }
+    
+
+        if (car.statusAvailability == true) {            
+            return (
+                <Col key={car.id}>
+                    <CarCard car={car} />
+                </Col>
+            )
+        }
     }
 
     return (
@@ -39,7 +45,7 @@ function Home() {
                 </Col>
                 <Col md="9" className=''>
                     <Container className='my-4'>
-                        <Row xs={1} md={3} className="g-1">                            
+                        <Row xs={1} md={3} className="g-1">
                             {cars.map(car => (
                                 RenderCars(car)
                             ))}

@@ -43,6 +43,10 @@ function SelectedCar() {
             userId: 31
         };
 
+        var carBody = {
+            statusAvailability: false
+        }
+
         axios.post(`${BASE_URL}/api/rentals`, rentalBody)
             .then(response => {
                 const data = response.data as Rental;
@@ -52,6 +56,19 @@ function SelectedCar() {
             }).catch(
                 function (error) {
                     alert('Erro ao solicitar locação')
+                    return Promise.reject(error)
+                }
+            );
+
+        axios.post(`${BASE_URL}/api/cars/${car?.id}`, carBody)
+            .then(response => {
+                const data = response.data as Car;
+                //setRental(data);
+                alert("status alterado")
+                console.log(data);
+            }).catch(
+                function (error) {
+                    alert('Erro ao alterar status')
                     return Promise.reject(error)
                 }
             );
@@ -137,8 +154,8 @@ function SelectedCar() {
                                     <Form.Group className="col-md-6">
                                         <Form.Label>Periodo de uso do veículo</Form.Label>
                                         <InputGroup className="">
-                                            <Form.Control type="date" id="initData" aria-label="Data Inicial" onChange={e => setPickupDate(e.target.value)}/>
-                                            <Form.Control type="date" id="finalData" aria-label="Data Final" onChange={e => setReturnDate(e.target.value)}/>
+                                            <Form.Control type="date" id="initData" aria-label="Data Inicial" onChange={e => setPickupDate(e.target.value)} />
+                                            <Form.Control type="date" id="finalData" aria-label="Data Final" onChange={e => setReturnDate(e.target.value)} />
                                         </InputGroup>
                                     </Form.Group>
                                 </Row>
