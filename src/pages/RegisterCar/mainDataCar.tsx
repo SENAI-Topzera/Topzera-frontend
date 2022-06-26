@@ -93,7 +93,7 @@ function CarMainData() {
                 <Form className="text-light">
                     <Row>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="brand">
                                 <Form.Label>Marca</Form.Label>
                                 <Form.Select aria-label="Marca" defaultValue={idMarca} onBlur={e => setMarca(e.target.value)}>
                                     <option disabled selected>Selecione</option>
@@ -104,7 +104,7 @@ function CarMainData() {
                             </Form.Group>
                         </Col>
                         <Col md="6">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="model">
                                 <Form.Label>Modelo</Form.Label>
                                 <Form.Select aria-label="Modelo" value={idModelo} onChange={e => setModelo(e.target.value)}>
                                     <option disabled selected>Selecione</option>
@@ -115,7 +115,7 @@ function CarMainData() {
                             </Form.Group>
                         </Col>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="modelYear">
                                 <Form.Label>Ano do Modelo</Form.Label>
                                 <Form.Select aria-label="Ano do Modelo" value={ano} onChange={e => setAno(e.target.value)}>
                                     <option disabled selected>Selecione</option>
@@ -126,7 +126,7 @@ function CarMainData() {
                     </Row>
                     <Row>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="color">
                                 <Form.Label>Cor</Form.Label>
                                 <Form.Select aria-label="Cor" value={cor} onChange={e => setCor(e.target.value)}>
                                     <option disabled selected>Selecione</option>
@@ -150,13 +150,13 @@ function CarMainData() {
                             </Form.Group>
                         </Col>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="board">
                                 <Form.Label>Placa</Form.Label>
                                 <Form.Control type="text" placeholder="" value={placa} onChange={e => setPlaca(e.target.value)} />
                             </Form.Group>
                         </Col>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="typeFuel">
                                 <Form.Label>Combustível usado</Form.Label>
                                 <Form.Select aria-label="Combustível usado" value={combustivel} onChange={e => setCombustivel(e.target.value)}>
                                     <option disabled selected>Selecione</option>
@@ -170,7 +170,7 @@ function CarMainData() {
                             </Form.Group>
                         </Col>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="typeGear">
                                 <Form.Label>Câmbio</Form.Label>
                                 <Form.Select aria-label="Câmbio">
                                     <option disabled selected>Selecione</option>
@@ -182,31 +182,31 @@ function CarMainData() {
                     </Row>
                     <Row>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="numberDoors">
                                 <Form.Label>Quantidade de Portas</Form.Label>
                                 <Form.Control type="number" min="1" placeholder="" />
                             </Form.Group>
                         </Col>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="numberAccents">
                                 <Form.Label>Capacidade de Pessoas</Form.Label>
                                 <Form.Control type="number" min="1" placeholder="" />
                             </Form.Group>
                         </Col>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="numberBaggage">
                                 <Form.Label>Capacidade de Bagagem (Litros)</Form.Label>
                                 <Form.Control type="number" min="1" placeholder="" />
                             </Form.Group>
                         </Col>
                         <Col md="3">
-                            <Form.Group className="mb-3" controlId="">
+                            <Form.Group className="mb-3" controlId="codeRenavam">
                                 <Form.Label>Número do Registro
                                     <OverlayTrigger placement="right" overlay={<Tooltip id="tooltip-registro">Informe o número do registro do veículo</Tooltip>}>
                                         <span className="px-1">< InfoIcon /></span>
                                     </OverlayTrigger>
                                 </Form.Label>
-                                <Form.Control type="text" placeholder="" />
+                                <Form.Control type="text" placeholder="Número do Renavam" />
                             </Form.Group>
                         </Col>
                     </Row>
