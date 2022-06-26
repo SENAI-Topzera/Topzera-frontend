@@ -41,11 +41,11 @@ function MyCarUse({ car }: Props) {
         }
 
         axios.get(`${BASE_URL}/api/users/${car.userId}`)
-        .then(response => {
-            const data = response.data as User;
-            console.log(data)
-            setUser(data);
-        });
+            .then(response => {
+                const data = response.data as User;
+                console.log(data)
+                setUser(data);
+            });
     }, []);
 
     return (
@@ -60,10 +60,7 @@ function MyCarUse({ car }: Props) {
                         </Col>
                         <Col md="6">
                             <Row>
-                                <Card.Title className="d-inline-block text-truncate fs-5">{car.brand}</Card.Title>
-                            </Row>
-                            <Row>
-                                <Card.Title className="d-inline-block text-truncate fs-5">{car.model}</Card.Title>
+                                <Card.Title className="d-inline-block text-truncate fs-5">{car.brand} {car.model}</Card.Title>
                             </Row>
                             <Row>
                                 <Card.Title className="d-inline-block text-truncate fs-6">Locador: {user?.name}</Card.Title>
