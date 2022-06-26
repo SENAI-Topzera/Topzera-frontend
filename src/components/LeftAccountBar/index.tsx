@@ -25,7 +25,7 @@ function LeftAccountBar() {
             <Row>
                 <Col md="1"></Col>
                 <Col md="10">
-                    <Person className='person' />
+                    <Person className='person w-100' />
                 </Col>
                 <Col md="1"></Col>
             </Row>
