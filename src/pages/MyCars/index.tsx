@@ -32,7 +32,7 @@ function MyCars() {
     return (
         <>
             <Navbar />
-            <Row>
+            <Row className="vh-100-navbar">
                 <Col md="3" className='px-0'>
                     <LeftAccountBar />
                 </Col>
