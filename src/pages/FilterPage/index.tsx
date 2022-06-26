@@ -39,13 +39,9 @@ function Home() {
                 </Col>
                 <Col md="9" className=''>
                     <Container className='my-4'>
-                        <Row xs={1} md={3} className="g-1">
-                            
+                        <Row xs={1} md={3} className="g-1">                            
                             {cars.map(car => (
                                 RenderCars(car)
-                                // <Col key={car.id}>
-                                //     <CarCard car={car} />
-                                // </Col>
                             ))}
                         </Row>
                     </Container>
