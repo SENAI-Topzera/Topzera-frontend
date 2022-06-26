@@ -1,5 +1,5 @@
 import Navbar from 'components/Navbar'
-import { Container, Row, Col, Form, Button, Carousel, CarouselItem, Card, InputGroup } from 'react-bootstrap';
+import { Row, Col, Form, Button, Carousel, Card, InputGroup } from 'react-bootstrap';
 import './styles.css';
 
 function HomePage() {
@@ -11,7 +11,7 @@ function HomePage() {
                 <Row>
                     <Col md="1"></Col>
                     <Col md="10">
-                    <h2 className="text-light text-center mt-2"> Compartilhe destinos e chegue onde precisar!</h2>
+                        <h2 className="text-light text-center mt-2"> Compartilhe destinos e chegue onde precisar!</h2>
                         <Card bg='primary' key='localDate' className="mt-3">
                             <Card.Body>
                                 <Row>
@@ -48,7 +48,7 @@ function HomePage() {
                             <Carousel.Item className='carousel-item-home testeimg'>
                                 <img
                                     className="d-block w-100"
-                                    src="https://images2.alphacoders.com/685/685648.jpg"
+                                    src="https://autolivraria.com.br/bc/wp-content/uploads/2018/01/Mitsubishi-Lancer-HL-T-01.jpg"
                                 />
                             </Carousel.Item>
                             <Carousel.Item className="carousel-item-home">
@@ -61,6 +61,12 @@ function HomePage() {
                                 <img
                                     className="d-block w-100"
                                     src="https://i.gaw.to/content/photos/41/07/410736_Une_Toyota_GR_Corolla_de_250_chevaux_pourrait_venir_ici.jpg"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item className='carousel-item-home'>
+                                <img
+                                    className="d-block w-100"
+                                    src="https://wallpapercave.com/wp/wp2840052.jpg"
                                 />
                             </Carousel.Item>
                         </Carousel>
