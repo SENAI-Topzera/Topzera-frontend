@@ -2,8 +2,31 @@ import Navbar from 'components/Navbar';
 import LeftAccountBar from 'components/LeftAccountBar';
 import MyCarUse from 'components/MyCarUse';
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import axios from 'axios';
+import { BASE_URL } from '../../utils/requests';
+import { Car } from '../../types/car';
+import { useEffect, useState } from 'react';
 
 function MyCars() {
+
+    const [cars, setCars] = useState<Car[]>([]);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/cars`)
+            .then(response => {
+                const data = response.data as Car[];
+                console.log(data)
+                setCars(data);
+            });
+    }, []);
+
+    const RenderMyCars = (car: Car) => {
+        if (car.userId == 24) {
+            return (
+                <MyCarUse car={car} />
+            )
+        }
+    }
 
     return (
         <>
@@ -25,7 +48,10 @@ function MyCars() {
                             </Row>
 
                             <Row>
-                                <MyCarUse />
+                                {cars.map(car => (
+                                    RenderMyCars(car)
+                                ))}
+                                {/* <MyCarUse /> */}
                             </Row>
                         </Row>
                     </Container>
