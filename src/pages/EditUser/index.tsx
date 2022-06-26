@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, FormText } from 'react-bootstrap';
+import Navbar from 'components/Navbar';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/requests';
 import { User } from '../../types/user';
@@ -20,6 +21,7 @@ function RegisterPersonalData() {
 
     return (
         <>
+            <Navbar />
             <Container>
                 <Row className='pt-5 my-3'>
                     <h3 className='text-light'>Preencha seus dados pessoais nos campos abaixo</h3>
@@ -36,13 +38,13 @@ function RegisterPersonalData() {
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="nationality">
                                     <Form.Label>Nacionalidade</Form.Label>
-                                    <Form.Control type="text" placeholder="" value={user?.nationality}/>
+                                    <Form.Control type="text" placeholder="" value={user?.nationality} />
                                 </Form.Group>
                             </Col>
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="cpf">
                                     <Form.Label>CPF</Form.Label>
-                                    <Form.Control type="text" placeholder="000.000.000-00" value={user?.cpf}/>
+                                    <Form.Control type="text" placeholder="000.000.000-00" value={user?.cpf} />
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -50,13 +52,13 @@ function RegisterPersonalData() {
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="phone">
                                     <Form.Label>Telefone Celular</Form.Label>
-                                    <Form.Control type="text" placeholder="" value={user?.phone}/>
+                                    <Form.Control type="text" placeholder="" value={user?.phone} />
                                 </Form.Group>
                             </Col>
                             <Col md="4">
                                 <Form.Group className="mb-3" controlId="email">
                                     <Form.Label>E-mail</Form.Label>
-                                    <Form.Control type="email" placeholder="" value={user?.email}/>
+                                    <Form.Control type="email" placeholder="" value={user?.email} />
                                 </Form.Group>
                             </Col>
                             <Col md="5">
@@ -95,7 +97,7 @@ function RegisterPersonalData() {
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="password">
                                     <Form.Label>Senha</Form.Label>
-                                    <Form.Control type="password" placeholder="" value={user?.password}/>
+                                    <Form.Control type="password" placeholder="" value={user?.password} />
                                 </Form.Group>
                             </Col>
                             <Col md="3">
