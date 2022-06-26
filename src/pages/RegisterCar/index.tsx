@@ -7,7 +7,7 @@ import UploadFiles from './uploadFiles';
 import SelectLocation from './selectLocation';
 import { Car } from 'types/car';
 import axios from 'axios';
-import { BASE_URL } from 'utils/requests';
+import { BASE_URL, CURRENT_USER } from 'utils/requests';
 
 function RegisterCar() {
 
@@ -17,13 +17,22 @@ function RegisterCar() {
         event.preventDefault();
         console.log("hadleregister")
 
-        const brand = document.getElementById("brand")?.getAttribute('value');
-        const model = document.getElementById("model")?.getAttribute('value');
-        const modelYear = document.getElementById("modelYear")?.getAttribute('value');
-        const color = document.getElementById("color")?.getAttribute('value');
+        var brandText = document.getElementById("brand") as HTMLSelectElement;
+        var modelText = document.getElementById("model") as HTMLSelectElement;
+        var modelShortText = modelText.options[modelText.selectedIndex].text.split(" ");
+        var yearText = document.getElementById("modelYear") as HTMLSelectElement;
+        var colorText = document.getElementById("color") as HTMLSelectElement;
+        var typeFuelText = document.getElementById("typeFuel") as HTMLSelectElement;
+        var typeGearText = document.getElementById("typeGear") as HTMLSelectElement;
+
+        const brand = brandText.options[brandText.selectedIndex].text;
+        const model = modelShortText[0];
+        const description = modelText.options[modelText.selectedIndex].text;
+        const modelYear = yearText.options[yearText.selectedIndex].text;
+        const color = colorText.options[colorText.selectedIndex].text;
         const board = document.getElementById("board")?.getAttribute('value');
-        const typeFuel = document.getElementById("typeFuel")?.getAttribute('value');
-        const typeGear = document.getElementById("typeGear")?.getAttribute('value');
+        const typeFuel = typeFuelText.options[typeFuelText.selectedIndex].text;
+        const typeGear = typeGearText.options[typeGearText.selectedIndex].text;
         const numberDoors = document.getElementById("numberDoors")?.getAttribute('value');
         const numberAccents = document.getElementById("numberAccents")?.getAttribute('value');
         const numberBaggage = document.getElementById("numberBaggage")?.getAttribute('value');
@@ -40,14 +49,19 @@ function RegisterCar() {
             numberDoors,
             numberAccents,
             numberBaggage,
-            codeRenavam
+            codeRenavam,
+            description,
+            statusAvailability: true,
+            userId: CURRENT_USER
         }
+
+        console.log(dataCar)
 
         axios.post(`${BASE_URL}/api/cars`, dataCar)
             .then(response => {
                 const data = response.data as Car;
-                console.log(data);
-                //setCar(data);
+                alert('Cadastrado com sucesso!')
+                setCar(data);
             }).catch(
                 function (error) {
                     alert('Erro ao cadastrar')
@@ -60,8 +74,8 @@ function RegisterCar() {
     return (
         <>
             <Navbar />
-            <Container>
-                <Form onSubmit={handleRegister} >
+            <Form onSubmit={handleRegister} >
+                <Container>
                     {/* DADOS VEICULO */}
                     <MainDataCar />
 
@@ -73,15 +87,15 @@ function RegisterCar() {
 
                     {/* LOCALIZACAO */}
                     <SelectLocation />
-                </Form>
-                <Row>
-                    <Col xs={9}>
-                    </Col>
-                    <Col xs={3} className="d-flex flex-row-reverse px-0">
-                        <Button id="continuarForm" className="w-100 mb-5" variant="primary" type="submit" href='#'>Cadastrar</Button>
-                    </Col>
-                </Row>
-            </Container>
+                    <Row>
+                        <Col xs={9}>
+                        </Col>
+                        <Col xs={3} className="d-flex flex-row-reverse px-0">
+                            <Button id="registerCarForm" className="w-100 mb-5" variant="primary" type="submit">Cadastrar</Button>
+                        </Col>
+                    </Row>
+                </Container>
+            </Form>
         </>
     )
 } export default RegisterCar;

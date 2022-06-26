@@ -17,6 +17,10 @@ function CarMainData() {
     const [ano, setAno] = useState('');
     const [cor, setCor] = useState('');
     const [placa, setPlaca] = useState('');
+    const [codeRenavam, setCodeRenavam] = useState('');
+    const [numberDoors, setNumberDoors] = useState('');
+    const [numberAccents, setNumberAccents] = useState('');
+    const [numberBaggage, setNumberBaggage] = useState('');
     const [combustivel, setCombustivel] = useState('');
     const [cambio, setCambio] = useState('');
 
@@ -57,6 +61,8 @@ function CarMainData() {
             codigoTipoVeiculo: 1,
             codigoMarca: idMarca
         };
+
+        
 
         axios.post(`https://fipe.contrateumdev.com.br/api/ConsultarModelos`, modelBody, { headers })
             .then(response => {
@@ -128,7 +134,7 @@ function CarMainData() {
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="color">
                                 <Form.Label>Cor</Form.Label>
-                                <Form.Select aria-label="Cor" value={cor} onChange={e => setCor(e.target.value)}>
+                                <Form.Select aria-label="Cor">
                                     <option disabled selected>Selecione</option>
                                     <option value="1">AMARELO</option>
                                     <option value="2">AZUL</option>
@@ -158,7 +164,7 @@ function CarMainData() {
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="typeFuel">
                                 <Form.Label>Combustível usado</Form.Label>
-                                <Form.Select aria-label="Combustível usado" value={combustivel} onChange={e => setCombustivel(e.target.value)}>
+                                <Form.Select aria-label="Combustível usado">
                                     <option disabled selected>Selecione</option>
                                     <option value="1">GNV</option>
                                     <option value="2">Álcool</option>
@@ -184,19 +190,19 @@ function CarMainData() {
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="numberDoors">
                                 <Form.Label>Quantidade de Portas</Form.Label>
-                                <Form.Control type="number" min="1" placeholder="" />
+                                <Form.Control type="number" min="1" placeholder="" value={numberDoors} onChange={e => setNumberDoors(e.target.value)}/>
                             </Form.Group>
                         </Col>
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="numberAccents">
                                 <Form.Label>Capacidade de Pessoas</Form.Label>
-                                <Form.Control type="number" min="1" placeholder="" />
+                                <Form.Control type="number" min="1" placeholder="" value={numberAccents} onChange={e => setNumberAccents(e.target.value)}/>
                             </Form.Group>
                         </Col>
                         <Col md="3">
                             <Form.Group className="mb-3" controlId="numberBaggage">
                                 <Form.Label>Capacidade de Bagagem (Litros)</Form.Label>
-                                <Form.Control type="number" min="1" placeholder="" />
+                                <Form.Control type="number" min="1" placeholder="" value={numberBaggage} onChange={e => setNumberBaggage(e.target.value)}/>
                             </Form.Group>
                         </Col>
                         <Col md="3">
@@ -206,7 +212,7 @@ function CarMainData() {
                                         <span className="px-1">< InfoIcon /></span>
                                     </OverlayTrigger>
                                 </Form.Label>
-                                <Form.Control type="text" placeholder="Número do Renavam" />
+                                <Form.Control type="text" placeholder="Número do Renavam" value={codeRenavam} onChange={e => setCodeRenavam(e.target.value)}/>
                             </Form.Group>
                         </Col>
                     </Row>
