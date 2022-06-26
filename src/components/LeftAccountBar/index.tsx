@@ -11,20 +11,14 @@ class leftAccountBar extends React.Component {
                 <Row>
                     <Col md="1"></Col>
                     <Col md="10">
-                        <Row>
-                            <Col md="12">
-                                <Container>
-                                    <Person className='person' />
-                                </Container>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <h6 className='text-center'>Godofredo da Silva</h6>
-                            </Col>
-                        </Row>
+                        <Person className='person w-100' />
                     </Col>
                     <Col md="1"></Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <h6 className='text-center'>Godofredo da Silva</h6>
+                    </Col>
                 </Row>
 
                 <Row>
@@ -34,7 +28,7 @@ class leftAccountBar extends React.Component {
                                 <Col md="1"></Col>
                                 <Col md="10">
                                     <Button variant="primary" className='w-100' href='/my-account'>
-                                        Minhas informações
+                                        Minha conta
                                     </Button>
                                 </Col>
                                 <Col md="1"></Col>
@@ -78,7 +72,7 @@ class leftAccountBar extends React.Component {
                 <Row>
                     <Col>
                         <Container>
-                            <Row>
+                            <Row className="d-flex align-items-center justify-content-center flex-column">
                                 <Col md="1"></Col>
                                 <Col md="10">
                                     <Button variant="primary" className='w-100'>
@@ -90,7 +84,7 @@ class leftAccountBar extends React.Component {
                         </Container>
                     </Col>
                 </Row>
-            </Nav>
+            </Nav >
         )
     }
 }
