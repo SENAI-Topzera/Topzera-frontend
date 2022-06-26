@@ -15,7 +15,7 @@ export type Car = {
     numberBaggage: string;
     numberDoors: string;
     optionalsId: string;
-    statusAvailability: string;
+    statusAvailability: boolean;
     typeFuel: string;
     typeGear: string;
     userId: number;

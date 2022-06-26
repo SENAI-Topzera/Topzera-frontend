@@ -2,3 +2,14 @@
     background-color: black;
     height: 7rem;
 }
+
+.carousel-item-mycar{
+    height: 7rem;
+}
+
+.carousel-item-mycar img{
+    object-fit: cover;
+    object-position: center;
+    height: 7rem;
+    overflow: hidden;
+}
