@@ -20,6 +20,16 @@ function Home() {
             });
     }, []);
 
+    const RenderCars = (car: Car) => {
+             if (car.statusAvailability == true) {
+                return (
+                    <Col key={car.id}>
+                         <CarCard car={car} />
+                    </Col>
+                )
+             }
+    }
+
     return (
         <>
             <Navbar />
@@ -30,10 +40,12 @@ function Home() {
                 <Col md="9" className=''>
                     <Container className='my-4'>
                         <Row xs={1} md={3} className="g-1">
+                            
                             {cars.map(car => (
-                                <Col key={car.id}>
-                                    <CarCard car={car} />
-                                </Col>
+                                RenderCars(car)
+                                // <Col key={car.id}>
+                                //     <CarCard car={car} />
+                                // </Col>
                             ))}
                         </Row>
                     </Container>
