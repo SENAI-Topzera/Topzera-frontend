@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, FormText } from 'react-bootstrap';
+import Navbar from 'components/Navbar';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/requests';
 import { User } from '../../types/user';
@@ -20,6 +21,7 @@ function RegisterPersonalData() {
 
     return (
         <>
+        <Navbar />
             <Container>
                 <Row className='pt-5 my-3'>
                     <h3 className='text-light'>Preencha seus dados pessoais nos campos abaixo</h3>
