@@ -25,21 +25,15 @@ function LeftAccountBar() {
             <Row>
                 <Col md="1"></Col>
                 <Col md="10">
-                    <Row>
-                        <Col md="12">
-                            <Container>
-                                <Person className='person' />
-                            </Container>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <h6 className='text-center'>{user?.name}</h6>
-                        </Col>
-                    </Row>
+                    <Person className='person w-100' />
                 </Col>
                 <Col md="1"></Col>
             </Row>
+            <Row>
+                <Col>
+                    <h6 className='text-center'>{user?.name}</h6>
+                </Col>
+            </Row >
 
             <Row>
                 <Col>
@@ -48,7 +42,7 @@ function LeftAccountBar() {
                             <Col md="1"></Col>
                             <Col md="10">
                                 <Button variant="primary" className='w-100' href='/my-account'>
-                                    Minhas informações
+                                    Minha conta
                                 </Button>
                             </Col>
                             <Col md="1"></Col>
@@ -92,7 +86,7 @@ function LeftAccountBar() {
             <Row>
                 <Col>
                     <Container>
-                        <Row>
+                        <Row className="d-flex align-items-center justify-content-center flex-column">
                             <Col md="1"></Col>
                             <Col md="10">
                                 <Button variant="primary" className='w-100'>
@@ -104,7 +98,7 @@ function LeftAccountBar() {
                     </Container>
                 </Col>
             </Row>
-        </Nav>
+        </Nav >
     );
 
 } export default LeftAccountBar;
