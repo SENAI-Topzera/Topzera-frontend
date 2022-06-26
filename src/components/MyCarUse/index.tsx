@@ -72,7 +72,7 @@ function MyCarUse({ car }: Props) {
                                 <Card.Title className="d-inline-block text-truncate fs-6">Status: {statusVehicle}</Card.Title>
                             </Row>
                         </Col>
-                        <Col md="2" className="px-1">
+                        {/* <Col md="2" className="px-1">
                             <Button variant="primary" className='w-100 px-0' href=''>
                                 Aceitar
                             </Button>
@@ -81,7 +81,7 @@ function MyCarUse({ car }: Props) {
                             <Button variant="primary" className='w-100'>
                                 Recusar
                             </Button>
-                        </Col>
+                        </Col> */}
                         {/* <Col md="3" className="px-1">
                             <Button variant="primary" className='w-100 ' href='/accept-decline'>
                                 Validar pendência
