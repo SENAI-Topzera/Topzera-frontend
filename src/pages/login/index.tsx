@@ -28,7 +28,7 @@ function login() {
                                         <Form.Group className="mb-3">
                                             <Row>
                                                 <Col>
-                                                    <Button variant="primary" className="w-100">
+                                                    <Button variant="primary" className="w-100" href="/home">
                                                         Login
                                                     </Button>
                                                 </Col>
