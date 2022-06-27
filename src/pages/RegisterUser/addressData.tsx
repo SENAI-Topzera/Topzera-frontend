@@ -58,7 +58,7 @@ function RegisterAddress({ isHidden }: Props) {
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="estado_usuario">
                                     <Form.Label>Estado</Form.Label>
-                                    <Form.Control type="text" placeholder="FAZER UM SELECT OPTIONS" value={estado} onChange={e => setEstado(e.target.value)}/>
+                                    <Form.Control type="text" placeholder="" value={estado} onChange={e => setEstado(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                         </Row>
