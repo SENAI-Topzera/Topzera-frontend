@@ -54,7 +54,7 @@ function RegisterPersonalData({ isHidden }: Props) {
                             <Col md="4">
                                 <Form.Group className="mb-3" controlId="email">
                                     <Form.Label>E-mail</Form.Label>
-                                    <Form.Control type="email" placeholder="" value={email} onChange={e => setEmail(e.target.value)}/>
+                                    <Form.Control type="email" placeholder="email@email.com" value={email} onChange={e => setEmail(e.target.value)}/>
                                 </Form.Group>
                             </Col>
                             <Col md="5">
@@ -99,7 +99,7 @@ function RegisterPersonalData({ isHidden }: Props) {
                             <Col md="3">
                                 <Form.Group className="mb-3" controlId="confirmPassword">
                                     <Form.Label>Confirmar Senha</Form.Label>
-                                    <Form.Control type="password" placeholder="Password" />
+                                    <Form.Control type="password" placeholder="" />
                                 </Form.Group>
                             </Col>
                             <Col md="6">
