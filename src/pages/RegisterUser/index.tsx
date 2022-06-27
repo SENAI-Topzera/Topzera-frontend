@@ -191,7 +191,7 @@ function RegisterUser() {
                                 <Col md="5">
                                 </Col>
                                 <Col md="2" className="d-grid">
-                                    <Button id="finalizarForm" variant="primary" type="button">Finalizar</Button>
+                                    <Button id="finalizarForm" variant="primary" type="button" href="/home">Finalizar</Button>
                                 </Col>
                                 <Col md="5">
                                 </Col>
